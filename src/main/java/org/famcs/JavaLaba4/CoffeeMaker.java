@@ -1,40 +1,38 @@
 package org.famcs.JavaLaba4;
 
-public abstract class CoffeeMaker
+import java.util.Date;
+import java.util.Formatter;
+import java.util.Scanner;
+public class CoffeeMaker extends CoffeeFabric
 {
-    protected int ID;               //ID Обьекта
-    protected static int count;     //Счетчик количества обьектов
-    protected String Brand;
+    protected String brand;
     protected String model;
     protected int power;
     protected double price;
-    public CoffeeMaker () 
+    protected Date releaseDate;             //добавить даты
+    
+    public CoffeeMaker()
     {
-        this.ID = ++this.count;
-    };
-
-    public abstract void Display();
-
-    public int getID()  {return this.ID;}
-
-    public void setID(int id) {
-        this.ID = id;
+        brand = "BRANDNAME";
+        model = "MODELNAME";
+        power = 0;
+        price = 0.0;
     }
-
-    public static int getCount() {
-        return CoffeeMaker.count;
+    
+    public CoffeeMaker(String brandname, String modelname, int powervalue, double pricevalue)
+    {
+        brand = brandname;
+        model = modelname;
+        power = powervalue;
+        price = pricevalue;
     }
-
-    public static void setCount(int count) {
-        CoffeeMaker.count = count;
-    }
-
+    
     public String getBrand() {
-        return Brand;
+        return brand;
     }
 
     public void setBrand(String brand) {
-        Brand = brand;
+        brand = brand;
     }
 
     public String getModel() {
@@ -60,4 +58,37 @@ public abstract class CoffeeMaker
     public void setPrice(double price) {
         this.price = price;
     }
+    
+    public void setDate(Date date)
+    {
+        this.releaseDate = date;
+    }
+    
+    public Date getDate()
+    {
+        return releaseDate;
+    }
+    @Override
+    public void Display()
+    {
+        Formatter frmt = new Formatter();
+        frmt.format("ID: %d   Brand: %s   Model: %s   Power: %dW   Price: %.2f BYN", getID(), brand, model, power, price );
+        System.out.println(frmt);
+    }
+    
+    public void Input(Scanner scan)
+    {
+        System.out.println("Enter the brand name: ");
+        String str = scan.nextLine();
+        this.brand = str;
+        System.out.println ("Enter the model: ");
+        str = scan.nextLine();
+        this.model = str;
+        System.out.println ("Enter the power value: ");
+        double value = scan.nextDouble();
+        this.power = (int) Math.round(value);
+        System.out.println ("Enter the price:");
+        value = scan.nextDouble();
+        this.price = value;
+    };
 }
