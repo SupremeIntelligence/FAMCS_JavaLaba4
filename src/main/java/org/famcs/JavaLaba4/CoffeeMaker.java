@@ -1,5 +1,6 @@
 package org.famcs.JavaLaba4;
 
+import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.Formatter;
 import java.util.Scanner;
@@ -17,6 +18,7 @@ public class CoffeeMaker extends CoffeeFabric
         model = "MODELNAME";
         power = 0;
         price = 0.0;
+        releaseDate = new Date(99, 0, 1);
     }
     
     public CoffeeMaker(String brandname, String modelname, int powervalue, double pricevalue)
@@ -25,8 +27,18 @@ public class CoffeeMaker extends CoffeeFabric
         model = modelname;
         power = powervalue;
         price = pricevalue;
+        releaseDate = new Date(99, 0, 1);
     }
     
+    public CoffeeMaker(String brandname, String modelname, int powervalue, double pricevalue, int day, int month, int year)
+    {
+        brand = brandname;
+        model = modelname;
+        power = powervalue;
+        price = pricevalue;
+        releaseDate = new Date(year, month, day);
+    }
+
     public String getBrand() {
         return brand;
     }
@@ -71,8 +83,10 @@ public class CoffeeMaker extends CoffeeFabric
     @Override
     public void Display()
     {
+         SimpleDateFormat dateFrmt = new SimpleDateFormat("dd:MM:yyyy");
+         String dateStr = dateFrmt.format(releaseDate);
         Formatter frmt = new Formatter();
-        frmt.format("ID: %d   Brand: %s   Model: %s   Power: %dW   Price: %.2f BYN", getID(), brand, model, power, price );
+        frmt.format("ID: %4d | Brand: %10s | Model: %10s | Power: %5dW | Price: %6.1f BYN | Release Date: %10s", getID(), brand, model, power, price, dateStr);
         System.out.println(frmt);
     }
     
@@ -90,5 +104,15 @@ public class CoffeeMaker extends CoffeeFabric
         System.out.println ("Enter the price:");
         value = scan.nextDouble();
         this.price = value;
+        System.out.println("Enter the release day: ");
+        int day = scan.nextInt();
+        System.out.println("Enter the release month:");
+        int month = scan.nextInt();
+        System.out.println ("Enter the release year: ");
+        int year = scan.nextInt();
+        year = year - 1900;
+        Date newDate = new Date(year, month, day);
+        this.releaseDate = newDate;
+
     };
 }
