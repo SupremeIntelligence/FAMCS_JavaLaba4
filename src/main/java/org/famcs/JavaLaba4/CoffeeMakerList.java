@@ -64,7 +64,7 @@ public class CoffeeMakerList extends CoffeeMakerCollection
         list.set(obj.getID(), obj);
     }
 
-    //@Override
+    @Override
     public void sort ()
     {
         int choice = 0;
@@ -110,5 +110,21 @@ public class CoffeeMakerList extends CoffeeMakerCollection
             System.out.println("Incorrect input");
         }
         scan.close();
+    }
+
+    @Override
+    public String toString()
+    {
+        String str ="";
+        if (!list.isEmpty())
+        {
+            Iterator<CoffeeFabric> itr = list.iterator();
+            while (itr.hasNext())
+            {
+                CoffeeFabric obj = itr.next();
+                str += obj.toString() + "\n";
+            }
+        }
+        return str;
     }
 }

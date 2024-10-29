@@ -8,4 +8,5 @@ public abstract class CoffeeMakerCollection
     public abstract int getSize();
     public abstract void update (CoffeeFabric obj);
     public abstract void sort ();
+    public abstract String toString();
 }

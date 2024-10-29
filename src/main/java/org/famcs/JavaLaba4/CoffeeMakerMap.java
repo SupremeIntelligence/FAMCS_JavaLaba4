@@ -128,4 +128,19 @@ public class CoffeeMakerMap extends CoffeeMakerCollection
         }
         scan.close();
     }
+    @Override
+    public String toString()
+    {
+        String str = "";
+        if (!map.isEmpty())
+        {
+            Iterator<Integer> itr = map.keySet().iterator();
+            while (itr.hasNext())
+            {
+                CoffeeFabric obj = map.get(itr.next());
+                str += obj.toString() + "\n";
+            }
+        }
+        return str;
+    }
 }

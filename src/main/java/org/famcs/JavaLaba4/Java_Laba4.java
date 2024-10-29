@@ -23,32 +23,28 @@ public class Java_Laba4 {
         // list.add(obj4);
         // list.add(obj5);
         
+        // System.out.println(list);
         //list.delete(obj1.getID());
 
-        obj2.setPower(9999);
+        //obj2.setPower(9999);
         //list.update (obj2);
 
         //list.display();
        // System.out.println();
-        
-
         //list.sort();
-
         //list.display();
+
         map.add(obj1);
         map.add(obj2);
         map.add(obj3);
         map.add(obj4);
         map.add(obj5);
 
-        map.display();
+        System.out.println (map);
 
-        map.sort();
-
-        map.display();
-        
-
-        System.out.println(obj1);
+        // map.display();
+        // map.sort();
+        // map.display();
 
         //obj.Display();
 
