@@ -39,46 +39,46 @@ public class CoffeeMaker extends CoffeeFabric
         releaseDate = new Date(year, month, day);
     }
 
+    @Override
     public String getBrand() {
         return brand;
     }
-
+    @Override
     public void setBrand(String brand) {
         brand = brand;
     }
-
+    @Override
     public String getModel() {
         return model;
     }
-
+    @Override
     public void setModel(String model) {
         this.model = model;
     }
-
+    @Override
     public int getPower() {
         return power;
     }
-
+    @Override
     public void setPower(int power) {
         this.power = power;
     }
-
+    @Override
     public double getPrice() {
         return price;
     }
-
+    @Override
     public void setPrice(double price) {
         this.price = price;
     }
-    
-    public void setDate(Date date)
-    {
-        this.releaseDate = date;
-    }
-    
     public Date getDate()
     {
         return releaseDate;
+    }
+    @Override
+    public void setDate(Date date)
+    {
+        this.releaseDate = date;
     }
     @Override
     public void Display()

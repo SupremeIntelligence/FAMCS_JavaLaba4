@@ -13,11 +13,15 @@ public class Java_Laba4 {
         CoffeeMaker obj1 = new CoffeeMaker("Bosch", "PP-123", 120, 300);
         CoffeeMaker obj2 = new CoffeeMaker();
         CoffeeMaker obj3 = new CoffeeMaker("Samsung", "S21 Ultra", 240, 2150.2, 16, 2, 2017 - 1900);
+        CoffeeMaker obj4 = new CoffeeMaker("Xiaomi", "15 Pro", 1000, 100,29,10,2024-1900);
+        CoffeeMaker obj5 = new CoffeeMaker("Xiaomi", "15 Pro", 1000, 100,29,10,2024-1900);
 
 
         list.add(obj1);
         list.add(obj2);
         list.add(obj3);
+        list.add(obj4);
+        list.add(obj5);
         
         //list.delete(obj1.getID());
 
@@ -27,11 +31,17 @@ public class Java_Laba4 {
         list.display();
         System.out.println();
         
-        map.add(obj1);
-        map.add(obj2);
-        map.add(obj3);
 
-        map.display();
+        list.sort();
+
+        list.display();
+        // map.add(obj1);
+        // map.add(obj2);
+        // map.add(obj3);
+
+        // map.display();
+
+        
 
         //obj.Display();
     }
