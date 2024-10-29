@@ -1,9 +1,13 @@
 package org.famcs.JavaLaba4;
 
+import java.util.Comparator;
 import java.util.HashMap;
 import java.util.Iterator;
+import java.util.LinkedHashMap;
 import java.util.Map;
 import java.util.Scanner;
+import java.util.TreeMap;
+import java.util.stream.Collectors;
 
 public class CoffeeMakerMap extends CoffeeMakerCollection
 {
@@ -41,6 +45,7 @@ public class CoffeeMakerMap extends CoffeeMakerCollection
                 CoffeeFabric obj = map.get(itr.next());
                 obj.Display();
             }
+            System.out.println();
         }
         else 
         {
@@ -63,7 +68,6 @@ public class CoffeeMakerMap extends CoffeeMakerCollection
     @Override
     public void sort()
     {
-        {
         int choice = 0;
         System.out.println ("""
             Choose sort mode:
@@ -80,34 +84,48 @@ public class CoffeeMakerMap extends CoffeeMakerCollection
         switch (choice)
         {
             case 1: 
-            //Collections.sort(list, Comparator.comparingInt(CoffeeFabric::getID));
+            Map<Integer, CoffeeFabric> trMap = new TreeMap<>(map);
+            map = trMap;
             break;
 
             case 2:
-            //Collections.sort(list, Comparator.comparing(CoffeeFabric::getBrand));
+            map = map.entrySet()
+            .stream()
+            .sorted(Map.Entry.comparingByValue(Comparator.comparing(CoffeeFabric::getBrand)))
+            .collect(Collectors.toMap(Map.Entry::getKey, Map.Entry::getValue, (key1, key2)->key1, LinkedHashMap::new));
             break;
 
             case 3:
-            //Collections.sort(list, Comparator.comparing(CoffeeFabric::getModel));
+            map = map.entrySet()
+            .stream()
+            .sorted(Map.Entry.comparingByValue(Comparator.comparing(CoffeeFabric::getModel)))
+            .collect(Collectors.toMap(Map.Entry::getKey, Map.Entry::getValue, (key1, key2)->key1, LinkedHashMap::new));
             break;
 
             case 4:
-            //Collections.sort(list, Comparator.comparingInt(CoffeeFabric::getPower));
+            map = map.entrySet()
+            .stream()
+            .sorted(Map.Entry.comparingByValue(Comparator.comparingInt(CoffeeFabric::getPower)))
+            .collect(Collectors.toMap(Map.Entry::getKey, Map.Entry::getValue, (key1, key2)->key1, LinkedHashMap::new));
             break;
 
             case 5:
-            //Collections.sort(list, Comparator.comparingDouble(CoffeeFabric::getPrice));
+            map = map.entrySet()
+            .stream()
+            .sorted(Map.Entry.comparingByValue(Comparator.comparingDouble(CoffeeFabric::getPrice)))
+            .collect(Collectors.toMap(Map.Entry::getKey, Map.Entry::getValue, (key1, key2)->key1, LinkedHashMap::new));
             break;
             
             case 6:
-            //Collections.sort(list, Comparator.comparing(CoffeeFabric::getDate));
+            map = map.entrySet()
+            .stream()
+            .sorted(Map.Entry.comparingByValue(Comparator.comparing(CoffeeFabric::getDate)))
+            .collect(Collectors.toMap(Map.Entry::getKey, Map.Entry::getValue, (key1, key2)->key1, LinkedHashMap::new));
             break;
 
             default:
             System.out.println("Incorrect input");
-            
-
         }
-    }
+        scan.close();
     }
 }

@@ -17,32 +17,40 @@ public class Java_Laba4 {
         CoffeeMaker obj5 = new CoffeeMaker("Xiaomi", "15 Pro", 1000, 100,29,10,2024-1900);
 
 
-        list.add(obj1);
-        list.add(obj2);
-        list.add(obj3);
-        list.add(obj4);
-        list.add(obj5);
+        // list.add(obj1);
+        // list.add(obj2);
+        // list.add(obj3);
+        // list.add(obj4);
+        // list.add(obj5);
         
         //list.delete(obj1.getID());
 
         obj2.setPower(9999);
-        list.update (obj2);
+        //list.update (obj2);
 
-        list.display();
-        System.out.println();
+        //list.display();
+       // System.out.println();
         
 
-        list.sort();
+        //list.sort();
 
-        list.display();
-        // map.add(obj1);
-        // map.add(obj2);
-        // map.add(obj3);
+        //list.display();
+        map.add(obj1);
+        map.add(obj2);
+        map.add(obj3);
+        map.add(obj4);
+        map.add(obj5);
 
-        // map.display();
+        map.display();
 
+        map.sort();
+
+        map.display();
         
 
         //obj.Display();
+
+        //Добавить метод isEmpty И применить его во всех методах вывода и сортировок
+        //Проверить работоспособность метода удаления элементов
     }
 }

@@ -104,9 +104,10 @@ public class CoffeeMakerList extends CoffeeMakerCollection
             case 6:
             Collections.sort(list, Comparator.comparing(CoffeeFabric::getDate));
             break;
-            
+
             default:
             System.out.println("Incorrect input");
         }
+        scan.close();
     }
 }
