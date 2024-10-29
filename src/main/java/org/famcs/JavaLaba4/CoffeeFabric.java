@@ -12,6 +12,8 @@ public abstract class CoffeeFabric
     };
 
     public abstract void Display();
+    public abstract String toString();
+
     public abstract String getModel();
     public abstract void setModel (String model);
     public abstract String getBrand ();

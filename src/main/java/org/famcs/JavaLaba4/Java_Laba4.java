@@ -48,6 +48,8 @@ public class Java_Laba4 {
         map.display();
         
 
+        System.out.println(obj1);
+
         //obj.Display();
 
         //Добавить метод isEmpty И применить его во всех методах вывода и сортировок

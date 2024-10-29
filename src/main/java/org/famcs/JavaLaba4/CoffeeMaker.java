@@ -90,6 +90,16 @@ public class CoffeeMaker extends CoffeeFabric
         System.out.println(frmt);
     }
     
+    @Override
+    public String toString()
+    {
+        SimpleDateFormat dateFrmt = new SimpleDateFormat("dd:MM:yyyy");
+         String dateStr = dateFrmt.format(releaseDate);
+        Formatter frmt = new Formatter();
+        return frmt.format("ID: %4d | Brand: %10s | Model: %10s | Power: %5dW | Price: %6.1f BYN | Release Date: %10s", getID(), brand, model, power, price, dateStr).toString();
+        
+    }
+
     public void Input(Scanner scan)
     {
         System.out.println("Enter the brand name: ");

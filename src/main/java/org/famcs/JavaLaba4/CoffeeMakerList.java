@@ -44,6 +44,7 @@ public class CoffeeMakerList extends CoffeeMakerCollection
                 CoffeeFabric obj = itr.next();
                 obj.Display();
             }
+            System.out.println();
         }
         else
         {
