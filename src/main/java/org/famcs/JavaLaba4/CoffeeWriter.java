@@ -15,17 +15,15 @@ public class CoffeeWriter
     {
         filePath = filename;
     }
-    public void write (CoffeeMakerList obj)
+    public void write (CoffeeMakerCollection obj)
     {
         try (FileWriter output = new FileWriter (filePath);)
         {
-            
-
+            output.write(obj.toString());
         }
         catch (IOException error)
         {
             System.out.println("\nError writing to file " + filePath +"\n" + error.getMessage());
         }
-
     }
 }

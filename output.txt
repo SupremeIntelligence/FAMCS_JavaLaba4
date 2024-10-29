@@ -1,0 +1,5 @@
+ID:    0 | Brand:      Bosch | Model:     PP-123 | Power:   120W | Price:  300,0 BYN | Release Date: 01:01:1999
+ID:    1 | Brand:  BRANDNAME | Model:  MODELNAME | Power:     0W | Price:    0,0 BYN | Release Date: 01:01:1999
+ID:    2 | Brand:    Samsung | Model:  S21 Ultra | Power:   240W | Price: 2150,2 BYN | Release Date: 16:03:2017
+ID:    3 | Brand:     Xiaomi | Model:     15 Pro | Power:  1000W | Price:  100,0 BYN | Release Date: 29:11:2024
+ID:    4 | Brand:     Xiaomi | Model:     15 Pro | Power:  1000W | Price:  100,0 BYN | Release Date: 29:11:2024

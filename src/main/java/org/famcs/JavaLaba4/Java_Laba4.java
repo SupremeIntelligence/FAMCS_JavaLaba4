@@ -17,13 +17,15 @@ public class Java_Laba4 {
         CoffeeMaker obj5 = new CoffeeMaker("Xiaomi", "15 Pro", 1000, 100,29,10,2024-1900);
 
 
-        // list.add(obj1);
-        // list.add(obj2);
-        // list.add(obj3);
-        // list.add(obj4);
-        // list.add(obj5);
+        list.add(obj1);
+        list.add(obj2);
+        list.add(obj3);
+        list.add(obj4);
+        list.add(obj5);
         
-        // System.out.println(list);
+        System.out.println(list);
+        CoffeeWriter out = new CoffeeWriter ("output.txt");
+        out.write (list);
         //list.delete(obj1.getID());
 
         //obj2.setPower(9999);
@@ -34,13 +36,17 @@ public class Java_Laba4 {
         //list.sort();
         //list.display();
 
-        map.add(obj1);
-        map.add(obj2);
-        map.add(obj3);
-        map.add(obj4);
-        map.add(obj5);
 
-        System.out.println (map);
+
+        // map.add(obj1);
+        // map.add(obj2);
+        // map.add(obj3);
+        // map.add(obj4);
+        // map.add(obj5);
+
+        // System.out.println (map);
+
+        
 
         // map.display();
         // map.sort();
