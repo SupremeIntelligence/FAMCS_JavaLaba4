@@ -45,7 +45,7 @@ public class CoffeeMaker extends CoffeeFabric
     }
     @Override
     public void setBrand(String brand) {
-        brand = brand;
+        this.brand = brand;
     }
     @Override
     public String getModel() {

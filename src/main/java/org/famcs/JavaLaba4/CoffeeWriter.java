@@ -9,12 +9,13 @@ public class CoffeeWriter
 
     CoffeeWriter ()
     {
-        //filePath = projectDirectory;
+        filePath = "output.txt";
     }
     CoffeeWriter(String filename)
     {
         filePath = filename;
     }
+
     public void write (CoffeeMakerCollection obj)
     {
         try (FileWriter output = new FileWriter (filePath);)

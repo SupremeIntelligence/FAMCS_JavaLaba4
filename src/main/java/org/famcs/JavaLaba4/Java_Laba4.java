@@ -16,16 +16,19 @@ public class Java_Laba4 {
         CoffeeMaker obj4 = new CoffeeMaker("Xiaomi", "15 Pro", 1000, 100,29,10,2024-1900);
         CoffeeMaker obj5 = new CoffeeMaker("Xiaomi", "15 Pro", 1000, 100,29,10,2024-1900);
 
-
-        list.add(obj1);
-        list.add(obj2);
-        list.add(obj3);
-        list.add(obj4);
-        list.add(obj5);
+        CoffeeReader in = new CoffeeReader("output.txt");
+        //CoffeeWriter out = new CoffeeWriter ("output.txt");
+        
+        in.read(list);
+        // list.add(obj1);
+        // list.add(obj2);
+        // list.add(obj3);
+        // list.add(obj4);
+        // list.add(obj5);
         
         System.out.println(list);
-        CoffeeWriter out = new CoffeeWriter ("output.txt");
-        out.write (list);
+        
+        //out.write (list);
         //list.delete(obj1.getID());
 
         //obj2.setPower(9999);
