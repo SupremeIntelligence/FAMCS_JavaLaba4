@@ -5,7 +5,6 @@ import java.util.HashMap;
 import java.util.Iterator;
 import java.util.LinkedHashMap;
 import java.util.Map;
-import java.util.Scanner;
 import java.util.TreeMap;
 import java.util.stream.Collectors;
 
@@ -25,7 +24,15 @@ public class CoffeeMakerMap extends CoffeeMakerCollection
     @Override
     public void add(CoffeeFabric obj)
     {
-        map.put (obj.getID(), obj);
+        if (obj.getID()<=map.size())
+        {
+            map.put (obj.getID(), obj);
+        }
+        else
+        {
+            obj.setID(map.size());
+            map.put(obj.getID(), obj);
+        }
     }
 
     @Override
@@ -66,21 +73,8 @@ public class CoffeeMakerMap extends CoffeeMakerCollection
     }
 
     @Override
-    public void sort()
+    public void sort(int choice)
     {
-        int choice = 0;
-        System.out.println ("""
-            Choose sort mode:
-            1. Sort by ID
-            2. Sort by brand
-            3. Sort by model
-            4. Sort by power
-            5. Sort by price
-            6. Sort by release date.
-                """);
-        Scanner scan = new Scanner (System.in);
-        choice = scan.nextInt();
-
         switch (choice)
         {
             case 1: 
@@ -124,9 +118,8 @@ public class CoffeeMakerMap extends CoffeeMakerCollection
             break;
 
             default:
-            System.out.println("Incorrect input");
+            System.out.println("Incorrect input. Try again");
         }
-        scan.close();
     }
     @Override
     public String toString()

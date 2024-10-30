@@ -7,6 +7,6 @@ public abstract class CoffeeMakerCollection
     public abstract void display ();
     public abstract int getSize();
     public abstract void update (CoffeeFabric obj);
-    public abstract void sort ();
+    public abstract void sort (int choice);
     public abstract String toString();
 }

@@ -10,7 +10,6 @@ public abstract class CoffeeFabric
     {
         this.ID = this.count++;
     };
-
     public abstract void Display();
     public abstract String toString();
 

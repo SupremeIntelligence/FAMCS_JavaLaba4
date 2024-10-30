@@ -96,12 +96,13 @@ public class CoffeeMaker extends CoffeeFabric
         SimpleDateFormat dateFrmt = new SimpleDateFormat("dd:MM:yyyy");
          String dateStr = dateFrmt.format(releaseDate);
         Formatter frmt = new Formatter();
-        return frmt.format("ID: %4d | Brand: %10s | Model: %10s | Power: %5dW | Price: %6.1f BYN | Release Date: %10s", getID(), brand, model, power, price, dateStr).toString();
+        return frmt.format("ID: %4d | Brand: %10s | Model: %15s | Power: %5dW | Price: %6.1f BYN | Release Date: %10s", getID(), brand, model, power, price, dateStr).toString();
         
     }
 
     public void Input(Scanner scan)
     {
+        //Scanner scan = new Scanner (System.in);
         System.out.println("Enter the brand name: ");
         String str = scan.nextLine();
         this.brand = str;
@@ -123,6 +124,8 @@ public class CoffeeMaker extends CoffeeFabric
         year = year - 1900;
         Date newDate = new Date(year, month, day);
         this.releaseDate = newDate;
+
+        //scan.close();
 
     };
 }
