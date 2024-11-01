@@ -104,28 +104,32 @@ public class CoffeeMaker extends CoffeeFabric
     {
         //Scanner scan = new Scanner (System.in);
         System.out.println("Enter the brand name: ");
+        scan.nextLine();
         String str = scan.nextLine();
         this.brand = str;
+
         System.out.println ("Enter the model: ");
         str = scan.nextLine();
         this.model = str;
+
         System.out.println ("Enter the power value: ");
         double value = scan.nextDouble();
         this.power = (int) Math.round(value);
+
         System.out.println ("Enter the price:");
         value = scan.nextDouble();
         this.price = value;
+
         System.out.println("Enter the release day: ");
         int day = scan.nextInt();
+
         System.out.println("Enter the release month:");
         int month = scan.nextInt();
+
         System.out.println ("Enter the release year: ");
         int year = scan.nextInt();
         year = year - 1900;
         Date newDate = new Date(year, month, day);
         this.releaseDate = newDate;
-
-        //scan.close();
-
     };
 }

@@ -88,10 +88,10 @@ public class Java_Laba4 {
                                 break;
 
                             case 4:
-                                System.out.println("//Adding a new item//");
                                 CoffeeMaker obj = new CoffeeMaker();
                                 obj.Input(scan);
                                 list.add(obj);
+                                System.out.println("//Adding a new item//");
                                 subChoice = scan.nextInt();
                                 break;
 
@@ -147,10 +147,10 @@ public class Java_Laba4 {
                             break;
 
                         case 4:
-                            System.out.println("//Adding a new item//");
                             CoffeeMaker obj = new CoffeeMaker();
-                            //obj.Input(scan);
+                            obj.Input(scan);
                             map.add(obj);
+                            System.out.println("//Adding a new item//");
                             subChoice = scan.nextInt();
                             break;
 
