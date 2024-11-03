@@ -20,6 +20,12 @@ public class CoffeeReader
     {
         filePath = filename;
     }
+
+    public String getfilePath()
+    {
+        return filePath;
+    }
+
     public void read (CoffeeMakerCollection obj)
     {
         try (Scanner scan = new Scanner (new FileReader (filePath)))

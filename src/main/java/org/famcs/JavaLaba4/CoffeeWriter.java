@@ -16,6 +16,11 @@ public class CoffeeWriter
         filePath = filename;
     }
 
+    public String getfilePath()
+    {
+        return filePath;
+    }
+
     public void write (CoffeeMakerCollection obj)
     {
         try (FileWriter output = new FileWriter (filePath);)

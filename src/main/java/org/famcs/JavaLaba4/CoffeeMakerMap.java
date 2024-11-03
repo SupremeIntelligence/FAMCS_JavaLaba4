@@ -136,4 +136,10 @@ public class CoffeeMakerMap extends CoffeeMakerCollection
         }
         return str;
     }
+
+    @Override
+    public CoffeeFabric getItem (int index)
+    {
+        return map.get(index);
+    }
 }

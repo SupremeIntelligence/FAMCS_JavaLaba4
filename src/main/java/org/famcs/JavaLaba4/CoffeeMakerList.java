@@ -120,4 +120,9 @@ public class CoffeeMakerList extends CoffeeMakerCollection
         }
         return str;
     }
+    @Override
+    public CoffeeFabric getItem(int index)
+    {
+        return list.get(index);
+    }
 }

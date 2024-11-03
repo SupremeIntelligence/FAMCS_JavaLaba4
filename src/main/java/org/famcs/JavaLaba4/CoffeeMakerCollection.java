@@ -9,4 +9,5 @@ public abstract class CoffeeMakerCollection
     public abstract void update (CoffeeFabric obj);
     public abstract void sort (int choice);
     public abstract String toString();
+    public abstract CoffeeFabric getItem (int index);
 }

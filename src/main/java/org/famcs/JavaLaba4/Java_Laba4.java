@@ -50,13 +50,23 @@ public class Java_Laba4 {
                           5. Sort by price
                           6. Sort by release date.""";
 
+        String filemenu = """
+                Choose file extension:
+                1.TXT file
+                2.XML file
+                3.JSON file
+                """;
+
         CoffeeReader in = new CoffeeReader("input.txt");
         CoffeeWriter out = new CoffeeWriter ("output.txt");
+        XMLWriter outXML = new XMLWriter("output.xml");
 
         System.out.println(menu);
         int choice;
         int subChoice;
         int sortChoice;
+        int fileChoice;
+        int ID;
         Scanner scan = new Scanner (System.in);
         choice = scan.nextInt();
 
@@ -72,13 +82,56 @@ public class Java_Laba4 {
                         switch(subChoice)
                         {
                             case 1:
-                                System.out.println ("//Reading data from file//");
-                                in.read (list);
+                            System.out.println(filemenu);
+                            fileChoice = scan.nextInt();
+                                switch(fileChoice)
+                                {
+                                    case 1:
+                                    in.read(list);
+                                    System.out.println ("//Reading data from txt file//");
+                                    break;
+
+                                    case 2:
+                                    
+                                    System.out.println("//Reading data from XML file");
+                                    break;
+
+                                    case 3:
+
+                                    System.out.println("//Reading data from JSON file");
+                                    break;
+
+                                    default:
+                                    System.out.println("Incorrect input.");
+                                    break;
+                                }
                                 subChoice = scan.nextInt();
                                 break;
                             case 2:
-                                System.out.println("//Writing data to file//");
-                                out.write(list);
+                            System.out.println(filemenu);
+                            fileChoice = scan.nextInt();
+                                switch(fileChoice)
+                                {
+                                    case 1:
+                                    out.write(list);
+                                    System.out.println ("//Writing data to txt file//");
+                                    break;
+
+                                    case 2:
+                                        outXML.configure();
+                                        outXML.writeCollection(list);
+                                    System.out.println("//Writing data to XML file");
+                                    break;
+
+                                    case 3:
+
+                                    System.out.println("//Writing data to JSON file");
+                                    break;
+
+                                    default:
+                                    System.out.println("Incorrect input.");
+                                    break;
+                                }
                                 subChoice = scan.nextInt();
                                 break;
 
@@ -88,22 +141,29 @@ public class Java_Laba4 {
                                 break;
 
                             case 4:
-                                CoffeeMaker obj = new CoffeeMaker();
-                                obj.Input(scan);
-                                list.add(obj);
+                                CoffeeMaker newObj1 = new CoffeeMaker();
+                                newObj1.Input(scan);
+                                list.add(newObj1);
                                 System.out.println("//Adding a new item//");
                                 subChoice = scan.nextInt();
                                 break;
 
                             case 5:
+                                System.out.println("Enter the ID of the item you want to update");
+                                ID = scan.nextInt();
+                                CoffeeMaker updObj1 = new CoffeeMaker();
+                                updObj1.Input(scan);
+                                updObj1.setID(ID);
+                                list.update(updObj1);
                                 System.out.println("//Updating item//");
-
                                 subChoice = scan.nextInt();
                                 break;
 
                             case 6:
+                                System.out.println("Enter the ID of the item you want to delete");
+                                ID = scan.nextInt();
+                                list.delete(ID);
                                 System.out.println("//Deleting item//");
-
                                 subChoice = scan.nextInt();
                                 break;
                             case 7:
@@ -131,13 +191,54 @@ public class Java_Laba4 {
                         switch(subChoice)
                         {
                         case 1:
-                            System.out.println ("//Reading data from file//");
-                            in.read (map);
+                        System.out.println(filemenu);
+                        fileChoice = scan.nextInt();
+                            switch(fileChoice)
+                            {
+                                case 1:
+                                in.read(map);
+                                System.out.println ("//Reading data from txt file//");
+                                break;
+
+                                case 2:
+
+                                System.out.println("//Reading data from XML file");
+                                break;
+
+                                case 3:
+
+                                System.out.println("//Reading data from JSON file");
+                                break;
+                                default:
+                                System.out.println("Incorrect input.");
+                                break;
+                            }
                             subChoice = scan.nextInt();
                             break;
                         case 2:
-                            System.out.println("//Writing data to file//");
-                            out.write(map);
+                        System.out.println(filemenu);
+                        fileChoice = scan.nextInt();
+                            switch(fileChoice)
+                            {
+                                case 1:
+                                out.write(map);
+                                System.out.println ("//Writing data to txt file//");
+                                break;
+
+                                case 2:
+
+                                System.out.println("//Writing data to XML file");
+                                break;
+
+                                case 3:
+
+                                System.out.println("//Writing data to JSON file");
+                                break;
+
+                                default:
+                                System.out.println("Incorrect input.");
+                                break;
+                            }
                             subChoice = scan.nextInt();
                             break;
 
@@ -147,22 +248,29 @@ public class Java_Laba4 {
                             break;
 
                         case 4:
-                            CoffeeMaker obj = new CoffeeMaker();
-                            obj.Input(scan);
-                            map.add(obj);
+                            CoffeeMaker newObj2 = new CoffeeMaker();
+                            newObj2.Input(scan);
+                            map.add(newObj2);
                             System.out.println("//Adding a new item//");
                             subChoice = scan.nextInt();
                             break;
 
                         case 5:
+                            System.out.println("Enter the ID of the item you want to update");
+                            ID = scan.nextInt();
+                            CoffeeMaker updObj2 = new CoffeeMaker();
+                            updObj2.Input(scan);
+                            updObj2.setID(ID);
+                            map.update(updObj2);
                             System.out.println("//Updating item//");
-
                             subChoice = scan.nextInt();
                             break;
 
                         case 6:
+                            System.out.println("Enter the ID of the item you want to delete");
+                            ID = scan.nextInt();
+                            map.delete(ID);
                             System.out.println("//Deleting item//");
-
                             subChoice = scan.nextInt();
                             break;
                         case 7:
