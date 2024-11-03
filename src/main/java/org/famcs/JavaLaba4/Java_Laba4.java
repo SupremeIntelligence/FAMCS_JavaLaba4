@@ -59,6 +59,7 @@ public class Java_Laba4 {
 
         CoffeeReader in = new CoffeeReader("input.txt");
         CoffeeWriter out = new CoffeeWriter ("output.txt");
+        XMLReader inXML = new XMLReader("input.xml");
         XMLWriter outXML = new XMLWriter("output.xml");
 
         System.out.println(menu);
@@ -92,7 +93,8 @@ public class Java_Laba4 {
                                     break;
 
                                     case 2:
-                                    
+                                    inXML.configure();
+                                    inXML.read (list);
                                     System.out.println("//Reading data from XML file");
                                     break;
 
@@ -149,7 +151,7 @@ public class Java_Laba4 {
                                 break;
 
                             case 5:
-                                System.out.println("Enter the ID of the item you want to update");
+                                System.out.print("Enter the ID of the item you want to update: ");
                                 ID = scan.nextInt();
                                 CoffeeMaker updObj1 = new CoffeeMaker();
                                 updObj1.Input(scan);
@@ -160,7 +162,7 @@ public class Java_Laba4 {
                                 break;
 
                             case 6:
-                                System.out.println("Enter the ID of the item you want to delete");
+                                System.out.print("Enter the ID of the item you want to delete: ");
                                 ID = scan.nextInt();
                                 list.delete(ID);
                                 System.out.println("//Deleting item//");
@@ -174,7 +176,7 @@ public class Java_Laba4 {
                                 subChoice = scan.nextInt();
                                 break;
                             default:
-                                System.out.println("Incorrect input. Try again:");
+                                System.out.print("Incorrect input. Try again:");
                                 subChoice = scan.nextInt();
                                 break;
 
@@ -201,7 +203,8 @@ public class Java_Laba4 {
                                 break;
 
                                 case 2:
-
+                                inXML.configure();
+                                inXML.read (map);
                                 System.out.println("//Reading data from XML file");
                                 break;
 
@@ -226,7 +229,8 @@ public class Java_Laba4 {
                                 break;
 
                                 case 2:
-
+                                outXML.configure();
+                                outXML.writeCollection(map);
                                 System.out.println("//Writing data to XML file");
                                 break;
 
@@ -256,7 +260,7 @@ public class Java_Laba4 {
                             break;
 
                         case 5:
-                            System.out.println("Enter the ID of the item you want to update");
+                            System.out.print("Enter the ID of the item you want to update: ");
                             ID = scan.nextInt();
                             CoffeeMaker updObj2 = new CoffeeMaker();
                             updObj2.Input(scan);
@@ -267,7 +271,7 @@ public class Java_Laba4 {
                             break;
 
                         case 6:
-                            System.out.println("Enter the ID of the item you want to delete");
+                            System.out.print("Enter the ID of the item you want to delete: ");
                             ID = scan.nextInt();
                             map.delete(ID);
                             System.out.println("//Deleting item//");
@@ -281,7 +285,7 @@ public class Java_Laba4 {
                             subChoice = scan.nextInt();
                             break;
                         default:
-                            System.out.println("Incorrect input. Try again:");
+                            System.out.print("Incorrect input. Try again:");
                             subChoice = scan.nextInt();
                             break;
                         }
@@ -291,7 +295,7 @@ public class Java_Laba4 {
                     break;
 
                 default:
-                    System.out.println("Incorrect input. Try again:");
+                    System.out.print("Incorrect input. Try again:");
                     choice = scan.nextInt();
                     break;
             }
