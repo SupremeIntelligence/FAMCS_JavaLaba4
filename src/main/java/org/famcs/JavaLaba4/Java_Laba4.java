@@ -42,7 +42,9 @@ public class Java_Laba4 {
                          6.Delete item
                          7.Sort data by field
                          8.Archive
-                         9.Return to main menu
+                         9.Encrypt
+                         10.Descrypt
+                         11.Return to main menu
                          """;
         String sortmenu = """
                           Choose sort mode: 
@@ -71,6 +73,7 @@ public class Java_Laba4 {
         XMLWriter outXML = new XMLWriter("output.xml");
         JSONReader inJSON = new JSONReader("input.json");
         JSONWriter outJSON = new JSONWriter("output.json");
+        Encryptor encryptor = new Encryptor();
 
         System.out.println(menu);
         int choice;
@@ -90,7 +93,7 @@ public class Java_Laba4 {
                 case 1:
                     System.out.println (submenu);
                     subChoice = scan.nextInt();
-                    while (subChoice != 9)
+                    while (subChoice != 11)
                     {
                         switch(subChoice)
                         {
@@ -213,6 +216,14 @@ public class Java_Laba4 {
                                 }
                                 subChoice = scan.nextInt();
                                 break;
+                            case 9:
+                                encryptor.encrypt("output.txt", "encrypted.txt");
+                                System.out.println ("//Data encryption//");
+                                subChoice = scan.nextInt();
+                                break;
+                            
+                            case 10:
+                                break;
                             default:
                                 System.out.print("Incorrect input. Try again:");
                                 subChoice = scan.nextInt();
@@ -226,7 +237,7 @@ public class Java_Laba4 {
                 case 2:
                     System.out.println (submenu);
                     subChoice = scan.nextInt();
-                    while (subChoice != 9)
+                    while (subChoice != 11)
                     {
                         switch(subChoice)
                         {
