@@ -4,6 +4,8 @@ import java.io.FileInputStream;
 import java.io.FileOutputStream;
 import java.io.FileWriter;
 import java.io.IOException;
+import java.util.jar.JarEntry;
+import java.util.jar.JarOutputStream;
 import java.util.zip.ZipEntry;
 import java.util.zip.ZipOutputStream;
 
@@ -57,7 +59,34 @@ public class CoffeeWriter
         }
         catch (IOException e)
         {
-            System.out.println("Error archivating file " + e.getMessage());
+            System.out.println("Error archiving file " + e.getMessage());
         }
+    }
+
+    public void jarArchive(String jarfilename)
+    {
+        try 
+        {
+            FileInputStream fileInput = new FileInputStream(filePath);
+            FileOutputStream fileOutput = new FileOutputStream(jarfilename);
+            JarOutputStream jarOutput = new JarOutputStream(fileOutput);
+
+            JarEntry jarEntry = new JarEntry(filePath);
+            jarOutput.putNextEntry(jarEntry);
+
+            byte[] buffer = new byte[1024];
+            int length;
+            while ((length = fileInput.read(buffer)) >= 0)
+            {
+                jarOutput.write(buffer, 0, length);
+            }
+            jarOutput.close();
+
+        } 
+        catch (IOException e) 
+        {
+            System.out.println("Error archiving file " + e.getMessage());
+        }
+        
     }
 }

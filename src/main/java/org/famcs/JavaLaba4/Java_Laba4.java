@@ -196,13 +196,17 @@ public class Java_Laba4 {
                                 switch(archiveChoice)
                                 {
                                     case 1:
+                                    zipname = zipname + ".zip";
                                     out.zipArchive(zipname);
                                     System.out.println ("//Zip data archiving//");
                                     break;
+                                
                                     case 2:
-                                    
+                                    zipname = zipname + ".jar";
+                                    out.jarArchive(zipname);
+                                    System.out.println ("//Jar data archiving//");
                                     break;
-
+                                        
                                     default:
                                     System.out.println("Incorrect input.");
                                     break;
@@ -328,11 +332,15 @@ public class Java_Laba4 {
                             switch(archiveChoice)
                             {
                                 case 1:
+                                zipname = zipname + ".zip";
                                 out.zipArchive(zipname);
                                 System.out.println ("//Zip data archiving//");
                                 break;
+
                                 case 2:
-                            
+                                zipname = zipname + ".jar";
+                                out.jarArchive(zipname);
+                                System.out.println ("//Jar data archiving//");
                                 break;
 
                                 default:
