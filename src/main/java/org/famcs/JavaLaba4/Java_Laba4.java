@@ -43,7 +43,7 @@ public class Java_Laba4 {
                          7.Sort data by field
                          8.Archive
                          9.Encrypt
-                         10.Descrypt
+                         10.Decrypt
                          11.Return to main menu
                          """;
         String sortmenu = """
@@ -223,7 +223,11 @@ public class Java_Laba4 {
                                 break;
                             
                             case 10:
+                                encryptor.decrypt("encrypted.txt", "decrypted.txt");
+                                System.out.println ("//Data decryption//");
+                                subChoice = scan.nextInt();
                                 break;
+
                             default:
                                 System.out.print("Incorrect input. Try again:");
                                 subChoice = scan.nextInt();

@@ -7,6 +7,7 @@ import java.security.InvalidKeyException;
 import java.security.NoSuchAlgorithmException;
 
 import javax.crypto.Cipher;
+import javax.crypto.CipherInputStream;
 import javax.crypto.CipherOutputStream;
 import javax.crypto.KeyGenerator;
 import javax.crypto.NoSuchPaddingException;
@@ -76,6 +77,42 @@ public class Encryptor
         catch(IOException e)
         {
             System.out.println ("Error encrypting file " + e.getMessage());
+        }
+        
+    }
+    public void decrypt (String encrFilePath, String decrFilePath)
+    {
+        try
+        {
+        Cipher cipher = Cipher.getInstance(ALGORITHM);
+        cipher.init(Cipher.DECRYPT_MODE, key);
+            FileInputStream fileInput = new FileInputStream(encrFilePath);
+            FileOutputStream decrFileOutput = new FileOutputStream(decrFilePath);
+            CipherInputStream decrStream = new CipherInputStream(fileInput, cipher);
+
+            byte[] buffer = new byte[1024];
+            int length;
+
+            while ((length = decrStream.read(buffer)) >= 0)
+            {
+                decrFileOutput.write(buffer, 0, length);
+            }
+        }
+        catch(NoSuchAlgorithmException e)
+        {
+            System.out.println ("Error supporting decryption algorythm " + e.getMessage());
+        }
+        catch (NoSuchPaddingException e)
+        {
+            System.out.println ("Error padding cipher " + e.getMessage());
+        }
+        catch (InvalidKeyException e)
+        {
+            System.out.println ("Invalid key error " + e.getMessage());
+        }
+        catch(IOException e)
+        {
+            System.out.println ("Error decrypting file " + e.getMessage());
         }
         
     }
