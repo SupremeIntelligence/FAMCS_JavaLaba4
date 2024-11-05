@@ -125,4 +125,10 @@ public class CoffeeMakerList extends CoffeeMakerCollection
     {
         return list.get(index);
     }
+
+    @Override
+    public List<CoffeeFabric> getList ()
+    {
+        return list;
+    }
 }

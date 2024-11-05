@@ -4,13 +4,17 @@ import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.Formatter;
 import java.util.Scanner;
+
+import com.fasterxml.jackson.annotation.JsonPropertyOrder;
+
+@JsonPropertyOrder({"id", "brand", "model", "price", "releaseDate"})
 public class CoffeeMaker extends CoffeeFabric
 {
     protected String brand;
     protected String model;
     protected int power;
     protected double price;
-    protected Date releaseDate;             //добавить даты
+    protected Date releaseDate;     
     
     public CoffeeMaker()
     {

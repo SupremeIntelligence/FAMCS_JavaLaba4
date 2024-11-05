@@ -1,5 +1,5 @@
 package org.famcs.JavaLaba4;
-
+import java.util.List;
 public abstract class CoffeeMakerCollection 
 {
     public abstract void add (CoffeeFabric obj);
@@ -10,4 +10,5 @@ public abstract class CoffeeMakerCollection
     public abstract void sort (int choice);
     public abstract String toString();
     public abstract CoffeeFabric getItem (int index);
+    public abstract List<CoffeeFabric> getList();
 }

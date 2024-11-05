@@ -1,9 +1,11 @@
 package org.famcs.JavaLaba4;
 
+import java.util.ArrayList;
 import java.util.Comparator;
 import java.util.HashMap;
 import java.util.Iterator;
 import java.util.LinkedHashMap;
+import java.util.List;
 import java.util.Map;
 import java.util.TreeMap;
 import java.util.stream.Collectors;
@@ -141,5 +143,11 @@ public class CoffeeMakerMap extends CoffeeMakerCollection
     public CoffeeFabric getItem (int index)
     {
         return map.get(index);
+    }
+    @Override
+    public List<CoffeeFabric> getList()
+    {
+        List<CoffeeFabric> list = new ArrayList<>(map.values());
+        return list;
     }
 }

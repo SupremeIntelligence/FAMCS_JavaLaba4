@@ -40,7 +40,7 @@ public class XMLWriter
         return document;
     }
 
-    public void writeCollection (CoffeeMakerCollection collection)
+    public void write (CoffeeMakerCollection collection)
     {
         Element root = document.getDocumentElement();
         int size = collection.getSize();
