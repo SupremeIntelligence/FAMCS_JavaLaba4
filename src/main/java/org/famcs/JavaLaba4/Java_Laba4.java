@@ -20,10 +20,10 @@ public class Java_Laba4 {
         //CoffeeMaker obj5 = new CoffeeMaker("Xiaomi", "17 Pro Max", 1100, 150,29,10,2024-1900);
         //JSONWriter writer = new JSONWriter("output.json");
         //writer.write(obj5);
-        System.out.println(obj2);
-        JSONReader reader = new JSONReader ("input.json");
-        reader.read(obj2);
-        System.out.println(obj2);
+        // System.out.println(obj2);
+        // JSONReader reader = new JSONReader ("input.json");
+        // reader.read(obj2);
+        // System.out.println(obj2);
         //Добавить метод isEmpty И применить его во всех методах вывода и сортировок
         //добавить метод clear
         String menu = """
@@ -41,7 +41,8 @@ public class Java_Laba4 {
                          5.Update item
                          6.Delete item
                          7.Sort data by field
-                         8.Return to main menu
+                         8.Archive
+                         9.Return to main menu
                          """;
         String sortmenu = """
                           Choose sort mode: 
@@ -59,6 +60,11 @@ public class Java_Laba4 {
                 3.JSON file
                 """;
 
+        String archivemenu = """
+                Choose archive extension:
+                1.ZIP
+                2.JAR
+                """;
         CoffeeReader in = new CoffeeReader("input.txt");
         CoffeeWriter out = new CoffeeWriter ("output.txt");
         XMLReader inXML = new XMLReader("input.xml");
@@ -71,6 +77,8 @@ public class Java_Laba4 {
         int subChoice;
         int sortChoice;
         int fileChoice;
+        int archiveChoice;
+        String zipname;
         int ID;
         Scanner scan = new Scanner (System.in);
         choice = scan.nextInt();
@@ -82,7 +90,7 @@ public class Java_Laba4 {
                 case 1:
                     System.out.println (submenu);
                     subChoice = scan.nextInt();
-                    while (subChoice != 8)
+                    while (subChoice != 9)
                     {
                         switch(subChoice)
                         {
@@ -173,10 +181,32 @@ public class Java_Laba4 {
                                 subChoice = scan.nextInt();
                                 break;
                             case 7:
-                                System.out.println ("//Sorting data//");
                                 System.out.println(sortmenu);
                                 sortChoice = scan.nextInt();
+                                System.out.println ("//Sorting data//");
                                 list.sort(sortChoice);
+                                subChoice = scan.nextInt();
+                                break;
+                            case 8:
+                                System.out.println ("Enter the name of the archive: ");
+                                scan.nextLine();
+                                zipname = scan.nextLine();
+                                System.out.println(archivemenu);
+                                archiveChoice = scan.nextInt();
+                                switch(archiveChoice)
+                                {
+                                    case 1:
+                                    out.zipArchive(zipname);
+                                    System.out.println ("//Zip data archiving//");
+                                    break;
+                                    case 2:
+                                    
+                                    break;
+
+                                    default:
+                                    System.out.println("Incorrect input.");
+                                    break;
+                                }
                                 subChoice = scan.nextInt();
                                 break;
                             default:
@@ -192,7 +222,7 @@ public class Java_Laba4 {
                 case 2:
                     System.out.println (submenu);
                     subChoice = scan.nextInt();
-                    while (subChoice != 8)
+                    while (subChoice != 9)
                     {
                         switch(subChoice)
                         {
@@ -213,10 +243,10 @@ public class Java_Laba4 {
                                 break;
 
                                 case 3:
-                                inJSON.read(list);
+                                inJSON.read(map);
                                 System.out.println("//Reading data from JSON file");
                                 break;
-                                
+
                                 default:
                                 System.out.println("Incorrect input.");
                                 break;
@@ -287,6 +317,28 @@ public class Java_Laba4 {
                             sortChoice = scan.nextInt();
                             System.out.println ("//Sorting data//");
                             map.sort(sortChoice);
+                            subChoice = scan.nextInt();
+                            break;
+                        case 8:
+                            System.out.println ("Enter the name of the archive: ");
+                            scan.nextLine();
+                            zipname = scan.nextLine();
+                            System.out.println(archivemenu);
+                            archiveChoice = scan.nextInt();
+                            switch(archiveChoice)
+                            {
+                                case 1:
+                                out.zipArchive(zipname);
+                                System.out.println ("//Zip data archiving//");
+                                break;
+                                case 2:
+                            
+                                break;
+
+                                default:
+                                System.out.println("Incorrect input.");
+                                break;
+                            }
                             subChoice = scan.nextInt();
                             break;
                         default:
