@@ -10,7 +10,8 @@ import com.fasterxml.jackson.databind.SerializationFeature;
 import com.fasterxml.jackson.databind.json.JsonMapper;
 
 
-public class JSONWriter {
+public class JSONWriter 
+{
     private String filePath;
     private ObjectMapper mapper;
 
@@ -19,7 +20,7 @@ public class JSONWriter {
         filePath = "output.json";
         mapper = JsonMapper.builder()
             .configure(SerializationFeature.WRITE_DATES_AS_TIMESTAMPS, false)
-            .defaultDateFormat(new SimpleDateFormat("dd-MM-yyyy"))
+            .defaultDateFormat(new SimpleDateFormat("yyyy-MM-dd"))
             .build();
 
         mapper.enable(SerializationFeature.INDENT_OUTPUT);
@@ -29,7 +30,7 @@ public class JSONWriter {
         filePath = filename;
         mapper = JsonMapper.builder()
             .configure(SerializationFeature.WRITE_DATES_AS_TIMESTAMPS, false)
-            .defaultDateFormat(new SimpleDateFormat("dd-MM-yyyy"))
+            .defaultDateFormat(new SimpleDateFormat("yyyy-MM-dd"))
             .build();
             
         mapper.enable(SerializationFeature.INDENT_OUTPUT);
@@ -40,7 +41,6 @@ public class JSONWriter {
         try
         {
             mapper.writeValue(new File (filePath), obj);
-            //String jsonString = mapper.writeValueAsString(obj);
         }
         catch(IOException e)
         {

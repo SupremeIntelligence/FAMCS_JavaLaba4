@@ -14,12 +14,16 @@ public class Java_Laba4 {
         CoffeeMakerMap map = new CoffeeMakerMap();
 
         // CoffeeMaker obj1 = new CoffeeMaker("Bosch", "PP-123", 120, 300);
-        // CoffeeMaker obj2 = new CoffeeMaker();
+        CoffeeMaker obj2 = new CoffeeMaker();
         // CoffeeMaker obj3 = new CoffeeMaker("Samsung", "S21 Ultra", 240, 2150.2, 16, 2, 2017 - 1900);
         // CoffeeMaker obj4 = new CoffeeMaker("Xiaomi", "15 Pro", 1000, 100,29,10,2024-1900);
         //CoffeeMaker obj5 = new CoffeeMaker("Xiaomi", "17 Pro Max", 1100, 150,29,10,2024-1900);
         //JSONWriter writer = new JSONWriter("output.json");
         //writer.write(obj5);
+        System.out.println(obj2);
+        JSONReader reader = new JSONReader ("input.json");
+        reader.read(obj2);
+        System.out.println(obj2);
         //Добавить метод isEmpty И применить его во всех методах вывода и сортировок
         //добавить метод clear
         String menu = """
@@ -59,7 +63,7 @@ public class Java_Laba4 {
         CoffeeWriter out = new CoffeeWriter ("output.txt");
         XMLReader inXML = new XMLReader("input.xml");
         XMLWriter outXML = new XMLWriter("output.xml");
-        
+        JSONReader inJSON = new JSONReader("input.json");
         JSONWriter outJSON = new JSONWriter("output.json");
 
         System.out.println(menu);
@@ -99,7 +103,7 @@ public class Java_Laba4 {
                                     break;
 
                                     case 3:
-                                    
+                                    inJSON.read(list);
                                     System.out.println("//Reading data from JSON file");
                                     break;
 
@@ -209,9 +213,10 @@ public class Java_Laba4 {
                                 break;
 
                                 case 3:
-
+                                inJSON.read(list);
                                 System.out.println("//Reading data from JSON file");
                                 break;
+                                
                                 default:
                                 System.out.println("Incorrect input.");
                                 break;

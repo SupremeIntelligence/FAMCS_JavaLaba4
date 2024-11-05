@@ -11,4 +11,5 @@ public abstract class CoffeeMakerCollection
     public abstract String toString();
     public abstract CoffeeFabric getItem (int index);
     public abstract List<CoffeeFabric> getList();
+    public abstract void addFromList (List<CoffeeFabric> list);
 }

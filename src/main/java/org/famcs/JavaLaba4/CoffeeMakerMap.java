@@ -150,4 +150,11 @@ public class CoffeeMakerMap extends CoffeeMakerCollection
         List<CoffeeFabric> list = new ArrayList<>(map.values());
         return list;
     }
+    @Override
+    public void addFromList(List<CoffeeFabric> list)
+    {
+        Map<Integer,CoffeeFabric> temp = list.stream().collect(Collectors.toMap (CoffeeFabric :: getID, value->value));
+        map.clear();
+        map.putAll(temp);
+    }
 }

@@ -43,6 +43,8 @@ public class CoffeeMaker extends CoffeeFabric
         releaseDate = new Date(year, month, day);
     }
 
+    
+
     @Override
     public String getBrand() {
         return brand;
