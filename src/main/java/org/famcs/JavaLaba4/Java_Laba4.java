@@ -67,7 +67,7 @@ public class Java_Laba4 {
                 1.ZIP
                 2.JAR
                 """;
-        CoffeeReader in = new CoffeeReader("input.txt");
+        DataReader in = new TXTReader("input.txt");
         CoffeeWriter out = new CoffeeWriter ("output.txt");
         XMLReader inXML = new XMLReader("input.xml");
         XMLWriter outXML = new XMLWriter("output.xml");

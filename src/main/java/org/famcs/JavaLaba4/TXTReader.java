@@ -8,15 +8,15 @@ import java.util.Date;
 import java.util.Scanner;
 import java.util.StringTokenizer;
 
-public class CoffeeReader 
+public class TXTReader implements DataReader
 {
-    private String filePath;
+    protected String filePath;
 
-    CoffeeReader ()
+    TXTReader ()
     {
         filePath = "";
     }
-    CoffeeReader(String filename)
+    TXTReader(String filename)
     {
         filePath = filename;
     }
@@ -26,7 +26,8 @@ public class CoffeeReader
         return filePath;
     }
 
-    public void read (CoffeeMakerCollection obj)
+    @Override
+    public void read (CoffeeMakerCollection collection)
     {
         try (Scanner scan = new Scanner (new FileReader (filePath)))
         {
@@ -35,7 +36,7 @@ public class CoffeeReader
            {
                 str = scan.nextLine();
                 CoffeeMaker item = parseToCoffeeMaker(str);
-                obj.add(item);
+                collection.add(item);
            }
         }
         catch (IOException error)
@@ -44,7 +45,7 @@ public class CoffeeReader
         }
     }
 
-    public CoffeeMaker parseToCoffeeMaker (String str)
+    private CoffeeMaker parseToCoffeeMaker (String str)
     {
         CoffeeMaker obj = new CoffeeMaker();
         
