@@ -15,21 +15,21 @@ import org.w3c.dom.Node;
 import org.w3c.dom.NodeList;
 import org.xml.sax.SAXException;
 
-public class XMLReader 
+public class XMLReaderDecorator extends TXTReader
 {
-    private String filePath;
     private Document document;
 
-
-    public XMLReader (String filename)
+    public XMLReaderDecorator() 
     {
-        filePath = filename;
+        super();
         document = null;
+        this.configure();
     }
-    public XMLReader() 
+    public XMLReaderDecorator (String filename)
     {
-        filePath = "input.xml";
+        super(filename);
         document = null;
+        this.configure();
     }
     public String getFilePath()
     {
@@ -40,7 +40,7 @@ public class XMLReader
         return document;
     }
 
-    public void configure ()
+    private void configure ()
     {
         try 
         {
@@ -62,13 +62,14 @@ public class XMLReader
             System.out.println("Error reading XML file: " + e.getMessage());
         }
     }
+    @Override
     public void read (CoffeeMakerCollection collection)
     {
         NodeList nodeList = document.getElementsByTagName("CoffeeMaker");
         for (int i = 0; i < nodeList.getLength(); i++)
         {
             Node node = nodeList.item(i);
-            if (node.getNodeType() == node.ELEMENT_NODE)
+            if (node.getNodeType() == Node.ELEMENT_NODE)
             {
                 Element item = (Element) node;
                 collection.add(parse(item));

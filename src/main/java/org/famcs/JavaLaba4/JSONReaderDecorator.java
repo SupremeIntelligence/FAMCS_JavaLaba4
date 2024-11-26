@@ -9,7 +9,7 @@ import com.fasterxml.jackson.databind.type.CollectionType;
 
 public class JSONReaderDecorator extends TXTReader
 {
-    private ObjectMapper mapper;
+    private final ObjectMapper mapper;
 
     public JSONReaderDecorator ()
     {
@@ -38,6 +38,7 @@ public class JSONReaderDecorator extends TXTReader
         
     }
 
+    @SuppressWarnings("unused")
     private void read (CoffeeFabric obj)
     {
         try 

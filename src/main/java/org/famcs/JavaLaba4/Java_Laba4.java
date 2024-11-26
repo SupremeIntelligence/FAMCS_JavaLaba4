@@ -69,7 +69,7 @@ public class Java_Laba4 {
                 """;
         DataReader input = new TXTReader("input.txt");
         CoffeeWriter out = new CoffeeWriter ("output.txt");
-        XMLReader inputXML = new XMLReader("input.xml");
+        DataReader inputXML = new XMLReaderDecorator("input.xml");
         XMLWriter outXML = new XMLWriter("output.xml");
         DataReader inputJSON = new JSONReaderDecorator("input.json");
         JSONWriter outJSON = new JSONWriter("output.json");
@@ -108,7 +108,6 @@ public class Java_Laba4 {
                                     break;
 
                                     case 2:
-                                    inputXML.configure();
                                     inputXML.read (list);
                                     System.out.println("//Reading data from XML file");
                                     break;
@@ -256,7 +255,6 @@ public class Java_Laba4 {
                                 break;
 
                                 case 2:
-                                inputXML.configure();
                                 inputXML.read (map);
                                 System.out.println("//Reading data from XML file");
                                 break;
