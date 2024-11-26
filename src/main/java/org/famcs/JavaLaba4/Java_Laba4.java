@@ -14,7 +14,7 @@ public class Java_Laba4 {
         CoffeeMakerMap map = new CoffeeMakerMap();
 
         // CoffeeMaker obj1 = new CoffeeMaker("Bosch", "PP-123", 120, 300);
-        CoffeeMaker obj2 = new CoffeeMaker();
+        //CoffeeMaker obj2 = new CoffeeMaker();
         // CoffeeMaker obj3 = new CoffeeMaker("Samsung", "S21 Ultra", 240, 2150.2, 16, 2, 2017 - 1900);
         // CoffeeMaker obj4 = new CoffeeMaker("Xiaomi", "15 Pro", 1000, 100,29,10,2024-1900);
         //CoffeeMaker obj5 = new CoffeeMaker("Xiaomi", "17 Pro Max", 1100, 150,29,10,2024-1900);
@@ -67,11 +67,11 @@ public class Java_Laba4 {
                 1.ZIP
                 2.JAR
                 """;
-        DataReader in = new TXTReader("input.txt");
+        DataReader input = new TXTReader("input.txt");
         CoffeeWriter out = new CoffeeWriter ("output.txt");
-        XMLReader inXML = new XMLReader("input.xml");
+        XMLReader inputXML = new XMLReader("input.xml");
         XMLWriter outXML = new XMLWriter("output.xml");
-        JSONReader inJSON = new JSONReader("input.json");
+        DataReader inputJSON = new JSONReaderDecorator("input.json");
         JSONWriter outJSON = new JSONWriter("output.json");
         Encryptor encryptor = new Encryptor();
 
@@ -103,18 +103,18 @@ public class Java_Laba4 {
                                 switch(fileChoice)
                                 {
                                     case 1:
-                                    in.read(list);
+                                    input.read(list);
                                     System.out.println ("//Reading data from txt file//");
                                     break;
 
                                     case 2:
-                                    inXML.configure();
-                                    inXML.read (list);
+                                    inputXML.configure();
+                                    inputXML.read (list);
                                     System.out.println("//Reading data from XML file");
                                     break;
 
                                     case 3:
-                                    inJSON.read(list);
+                                    inputJSON.read(list);
                                     System.out.println("//Reading data from JSON file");
                                     break;
 
@@ -251,18 +251,18 @@ public class Java_Laba4 {
                             switch(fileChoice)
                             {
                                 case 1:
-                                in.read(map);
+                                input.read(map);
                                 System.out.println ("//Reading data from txt file//");
                                 break;
 
                                 case 2:
-                                inXML.configure();
-                                inXML.read (map);
+                                inputXML.configure();
+                                inputXML.read (map);
                                 System.out.println("//Reading data from XML file");
                                 break;
 
                                 case 3:
-                                inJSON.read(map);
+                                inputJSON.read(map);
                                 System.out.println("//Reading data from JSON file");
                                 break;
 

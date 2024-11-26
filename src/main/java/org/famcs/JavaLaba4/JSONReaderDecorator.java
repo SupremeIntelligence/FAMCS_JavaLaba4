@@ -7,23 +7,38 @@ import java.util.List;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.databind.type.CollectionType;
 
-public class JSONReader 
+public class JSONReaderDecorator extends TXTReader
 {
-    private String filePath;
     private ObjectMapper mapper;
 
-    public JSONReader ()
+    public JSONReaderDecorator ()
     {
-        filePath = "input.json";
+        super();
         mapper = new ObjectMapper();
     }
-    public JSONReader (String filename)
+    public JSONReaderDecorator (String filename)
     {
-        filePath = filename;
+        super(filename);
         mapper = new ObjectMapper();
     }
 
-    public void read (CoffeeFabric obj)
+    @Override
+    public void read (CoffeeMakerCollection collection)
+    {
+        try
+        {
+            CollectionType listType = mapper.getTypeFactory().constructCollectionType(List.class, CoffeeMaker.class);
+            List<CoffeeFabric> list = mapper.readValue (new File(filePath), listType);
+            collection.addFromList(list);
+        }
+        catch (IOException e)
+        {
+            System.out.println( "Error reading JSON file " + e.getMessage());
+        }
+        
+    }
+
+    private void read (CoffeeFabric obj)
     {
         try 
         {
@@ -40,19 +55,5 @@ public class JSONReader
         {
             System.out.println ("Error reading JSON file " + e.getMessage());
         }
-    }
-    public void read (CoffeeMakerCollection collection)
-    {
-        try
-        {
-            CollectionType listType = mapper.getTypeFactory().constructCollectionType(List.class, CoffeeMaker.class);
-            List<CoffeeFabric> list = mapper.readValue (new File(filePath), listType);
-            collection.addFromList(list);
-        }
-        catch (IOException e)
-        {
-            System.out.println( "Error reading JSON file " + e.getMessage());
-        }
-        
     }
 }
