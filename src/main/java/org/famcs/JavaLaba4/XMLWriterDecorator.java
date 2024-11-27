@@ -15,25 +15,28 @@ import javax.xml.transform.stream.StreamResult;
 import org.w3c.dom.Document;
 import org.w3c.dom.Element;
 
-public class XMLWriter 
+public class XMLWriterDecorator extends TXTWriter
 {
-    private String filePath;
+    private DataWriter wrapee;
     private Document document;
 
+    public XMLWriterDecorator()
+    {
+        wrapee = null;
+        document = null;
+        this.configure();
+    }
+    public XMLWriterDecorator (DataWriter source)
+    {
+        wrapee = source;
+        document = null;
+        this.configure();
+    }
 
-    public XMLWriter (String filename)
-    {
-        filePath = filename;
-        document = null;
-    }
-    public XMLWriter() 
-    {
-        filePath = "output.xml";
-        document = null;
-    }
+    @Override
     public String getFilePath()
     {
-        return filePath;
+        return this.wrapee.getFilePath();
     }
     public Document getDocument()
     {
@@ -57,7 +60,7 @@ public class XMLWriter
             Transformer transformer = factory.newTransformer();
             transformer.setOutputProperty(OutputKeys.INDENT, "yes");
             DOMSource source = new DOMSource(document);
-            StreamResult result = new StreamResult(filePath);
+            StreamResult result = new StreamResult(this.wrapee.getFilePath() + ".xml");
             transformer.transform(source, result);
 
         } 

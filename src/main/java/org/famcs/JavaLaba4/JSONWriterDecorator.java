@@ -10,14 +10,14 @@ import com.fasterxml.jackson.databind.SerializationFeature;
 import com.fasterxml.jackson.databind.json.JsonMapper;
 
 
-public class JSONWriter 
+public class JSONWriterDecorator extends TXTWriter
 {
-    private String filePath;
+    private DataWriter wrapee;
     private ObjectMapper mapper;
 
-    public JSONWriter ()
+    public JSONWriterDecorator ()
     {
-        filePath = "output.json";
+        wrapee = null;
         mapper = JsonMapper.builder()
             .configure(SerializationFeature.WRITE_DATES_AS_TIMESTAMPS, false)
             .defaultDateFormat(new SimpleDateFormat("yyyy-MM-dd"))
@@ -25,9 +25,9 @@ public class JSONWriter
 
         mapper.enable(SerializationFeature.INDENT_OUTPUT);
     }
-    public JSONWriter (String filename)
+    public JSONWriterDecorator (DataWriter source)
     {
-        filePath = filename;
+        wrapee = source;
         mapper = JsonMapper.builder()
             .configure(SerializationFeature.WRITE_DATES_AS_TIMESTAMPS, false)
             .defaultDateFormat(new SimpleDateFormat("yyyy-MM-dd"))
@@ -40,7 +40,7 @@ public class JSONWriter
     {
         try
         {
-            mapper.writeValue(new File (filePath), obj);
+            mapper.writeValue(new File (this.wrapee.getFilePath() + ".json"), obj);
         }
         catch(IOException e)
         {
@@ -53,7 +53,7 @@ public class JSONWriter
         try
         {
             List<CoffeeFabric> list = collection.getList();
-            mapper.writeValue(new File (filePath), list);
+            mapper.writeValue(new File (this.wrapee.getFilePath() + ".json"), list);
         }
         catch(IOException e)
         {

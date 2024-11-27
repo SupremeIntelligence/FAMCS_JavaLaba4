@@ -15,15 +15,19 @@ public class JSONReaderDecorator extends TXTReader
 
     public JSONReaderDecorator ()
     {
-        this.wrapee = null;
+        wrapee = null;
         mapper = new ObjectMapper();
     }
     public JSONReaderDecorator (DataReader source)
     {
-        this.wrapee = source;
+        wrapee = source;
         mapper = new ObjectMapper();
     }
 
+    public String getFilePath ()
+    {
+        return this.wrapee.getFilePath();
+    }
     @Override
     public void read (CoffeeMakerCollection collection)
     {

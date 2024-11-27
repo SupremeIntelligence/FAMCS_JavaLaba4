@@ -32,10 +32,10 @@ public class XMLReaderDecorator extends TXTReader
         document = null;
         this.configure();
     }
-    /*public String getFilePath()
+    public String getFilePath()
     {
-        return filePath;
-    }*/
+        return this.wrapee.getFilePath();
+    }
     public Document getDocument()
     {
         return document;

@@ -70,11 +70,11 @@ public class Java_Laba4 {
         DataReader input = new TXTReader("input");
         DataReader inputJSON = new JSONReaderDecorator(input);
         DataReader inputXML = new XMLReaderDecorator(input);
+
         DataWriter out = new TXTWriter ("output");
+        DataWriter outXML = new XMLWriterDecorator(out);
+        DataWriter outJSON = new JSONWriterDecorator(out);
 
-        XMLWriter outXML = new XMLWriter("output.xml");
-
-        JSONWriter outJSON = new JSONWriter("output.json");
         Encryptor encryptor = new Encryptor();
 
         System.out.println(menu);
@@ -131,18 +131,20 @@ public class Java_Laba4 {
                                 switch(fileChoice)
                                 {
                                     case 1:
+                                    out = new TXTWriter("input");
                                     out.write(list);
                                     System.out.println ("//Writing data to txt file//");
                                     break;
 
                                     case 2:
-                                        outXML.configure();
-                                        outXML.write(list);
+                                        out = new XMLWriterDecorator(out);
+                                        out.write(list);
                                     System.out.println("//Writing data to XML file");
                                     break;
 
                                     case 3:
-                                    outJSON.write(list);
+                                        out = new JSONWriterDecorator(out);
+                                    out.write(list);
                                     System.out.println("//Writing data to JSON file");
                                     break;
 
@@ -283,7 +285,6 @@ public class Java_Laba4 {
                                 break;
 
                                 case 2:
-                                outXML.configure();
                                 outXML.write(map);
                                 System.out.println("//Writing data to XML file");
                                 break;

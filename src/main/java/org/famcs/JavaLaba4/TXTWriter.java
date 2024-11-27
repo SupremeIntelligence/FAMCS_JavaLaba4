@@ -31,13 +31,13 @@ public class TXTWriter implements DataWriter
     @Override
     public void write (CoffeeMakerCollection collection)
     {
-        try (FileWriter output = new FileWriter (filePath);)
+        try (FileWriter output = new FileWriter (filePath+ ".txt");)
         {
             output.write(collection.toString());
         }
         catch (IOException error)
         {
-            System.out.println("\nError writing to file " + filePath +"\n" + error.getMessage());
+            System.out.println("\nError writing to file " + filePath + ".txt" +"\n" + error.getMessage());
         }
     }
     public void zipArchive (String zipfilename)
@@ -69,11 +69,11 @@ public class TXTWriter implements DataWriter
     {
         try 
         {
-            FileInputStream fileInput = new FileInputStream(filePath);
+            FileInputStream fileInput = new FileInputStream(filePath + ".txt");
             FileOutputStream fileOutput = new FileOutputStream(jarfilename);
             JarOutputStream jarOutput = new JarOutputStream(fileOutput);
 
-            JarEntry jarEntry = new JarEntry(filePath);
+            JarEntry jarEntry = new JarEntry(filePath + ".txt");
             jarOutput.putNextEntry(jarEntry);
 
             byte[] buffer = new byte[1024];
