@@ -9,16 +9,18 @@ import com.fasterxml.jackson.databind.type.CollectionType;
 
 public class JSONReaderDecorator extends TXTReader
 {
+    private DataReader wrapee;
     private final ObjectMapper mapper;
+
 
     public JSONReaderDecorator ()
     {
-        super();
+        this.wrapee = null;
         mapper = new ObjectMapper();
     }
-    public JSONReaderDecorator (String filename)
+    public JSONReaderDecorator (DataReader source)
     {
-        super(filename);
+        this.wrapee = source;
         mapper = new ObjectMapper();
     }
 
@@ -28,7 +30,7 @@ public class JSONReaderDecorator extends TXTReader
         try
         {
             CollectionType listType = mapper.getTypeFactory().constructCollectionType(List.class, CoffeeMaker.class);
-            List<CoffeeFabric> list = mapper.readValue (new File(filePath), listType);
+            List<CoffeeFabric> list = mapper.readValue (new File(this.wrapee.getFilePath() + ".json"), listType);
             collection.addFromList(list);
         }
         catch (IOException e)
@@ -43,7 +45,7 @@ public class JSONReaderDecorator extends TXTReader
     {
         try 
         {
-            CoffeeFabric temp = mapper.readValue (new File(filePath), CoffeeFabric.class);
+            CoffeeFabric temp = mapper.readValue (new File(this.wrapee.getFilePath() + ".json"), CoffeeFabric.class);
             
             obj.setID(temp.getID());
             obj.setBrand(temp.getBrand());

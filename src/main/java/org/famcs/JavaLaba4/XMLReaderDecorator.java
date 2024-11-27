@@ -17,24 +17,25 @@ import org.xml.sax.SAXException;
 
 public class XMLReaderDecorator extends TXTReader
 {
+    private DataReader wrapee;
     private Document document;
 
     public XMLReaderDecorator() 
     {
-        super();
+        wrapee = null;
         document = null;
         this.configure();
     }
-    public XMLReaderDecorator (String filename)
+    public XMLReaderDecorator (DataReader source)
     {
-        super(filename);
+        wrapee = source;
         document = null;
         this.configure();
     }
-    public String getFilePath()
+    /*public String getFilePath()
     {
         return filePath;
-    }
+    }*/
     public Document getDocument()
     {
         return document;
@@ -47,7 +48,7 @@ public class XMLReaderDecorator extends TXTReader
             DocumentBuilderFactory factory = DocumentBuilderFactory.newInstance(); 
             DocumentBuilder builder = factory.newDocumentBuilder();
             
-            document = builder.parse(filePath);
+            document = builder.parse(this.wrapee.getFilePath() + ".xml");
         }
         catch (ParserConfigurationException e) 
         {

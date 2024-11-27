@@ -67,11 +67,13 @@ public class Java_Laba4 {
                 1.ZIP
                 2.JAR
                 """;
-        DataReader input = new TXTReader("input.txt");
+        DataReader input = new TXTReader("input");
+        DataReader inputJSON = new JSONReaderDecorator(input);
+        DataReader inputXML = new XMLReaderDecorator(input);
         CoffeeWriter out = new CoffeeWriter ("output.txt");
-        DataReader inputXML = new XMLReaderDecorator("input.xml");
+
         XMLWriter outXML = new XMLWriter("output.xml");
-        DataReader inputJSON = new JSONReaderDecorator("input.json");
+
         JSONWriter outJSON = new JSONWriter("output.json");
         Encryptor encryptor = new Encryptor();
 
