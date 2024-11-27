@@ -9,29 +9,31 @@ import java.util.jar.JarOutputStream;
 import java.util.zip.ZipEntry;
 import java.util.zip.ZipOutputStream;
 
-public class CoffeeWriter 
+public class TXTWriter implements DataWriter
 {
     private String filePath;
 
-    CoffeeWriter ()
+    TXTWriter ()
     {
         filePath = "output.txt";
     }
-    CoffeeWriter(String filename)
+    TXTWriter(String filename)
     {
         filePath = filename;
     }
 
-    public String getfilePath()
+    @Override
+    public String getFilePath()
     {
         return filePath;
     }
 
-    public void write (CoffeeMakerCollection obj)
+    @Override
+    public void write (CoffeeMakerCollection collection)
     {
         try (FileWriter output = new FileWriter (filePath);)
         {
-            output.write(obj.toString());
+            output.write(collection.toString());
         }
         catch (IOException error)
         {

@@ -70,7 +70,7 @@ public class Java_Laba4 {
         DataReader input = new TXTReader("input");
         DataReader inputJSON = new JSONReaderDecorator(input);
         DataReader inputXML = new XMLReaderDecorator(input);
-        CoffeeWriter out = new CoffeeWriter ("output.txt");
+        DataWriter out = new TXTWriter ("output");
 
         XMLWriter outXML = new XMLWriter("output.xml");
 
@@ -201,13 +201,13 @@ public class Java_Laba4 {
                                 {
                                     case 1:
                                     zipname = zipname + ".zip";
-                                    out.zipArchive(zipname);
+                                    //out.zipArchive(zipname);
                                     System.out.println ("//Zip data archiving//");
                                     break;
                                 
                                     case 2:
                                     zipname = zipname + ".jar";
-                                    out.jarArchive(zipname);
+                                    //out.jarArchive(zipname);
                                     System.out.println ("//Jar data archiving//");
                                     break;
                                         
@@ -348,13 +348,13 @@ public class Java_Laba4 {
                             {
                                 case 1:
                                 zipname = zipname + ".zip";
-                                out.zipArchive(zipname);
+                                //out.zipArchive(zipname);
                                 System.out.println ("//Zip data archiving//");
                                 break;
 
                                 case 2:
                                 zipname = zipname + ".jar";
-                                out.jarArchive(zipname);
+                                //out.jarArchive(zipname);
                                 System.out.println ("//Jar data archiving//");
                                 break;
 
