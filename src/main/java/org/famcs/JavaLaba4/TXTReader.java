@@ -10,11 +10,11 @@ import java.util.StringTokenizer;
 
 public class TXTReader implements DataReader
 {
-    private String filePath;
+    private final String filePath;
 
     TXTReader ()
     {
-        filePath = "";
+        filePath = "input";
     }
     TXTReader(String filename)
     {

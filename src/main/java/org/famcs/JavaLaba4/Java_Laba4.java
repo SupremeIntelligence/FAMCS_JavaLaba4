@@ -68,13 +68,7 @@ public class Java_Laba4 {
                 2.JAR
                 """;
         DataReader input = new TXTReader("input");
-        DataReader inputJSON = new JSONReaderDecorator(input);
-        DataReader inputXML = new XMLReaderDecorator(input);
-
         DataWriter out = new TXTWriter ("output");
-        DataWriter outXML = new XMLWriterDecorator(out);
-        DataWriter outJSON = new JSONWriterDecorator(out);
-
         Encryptor encryptor = new Encryptor();
 
         System.out.println(menu);
@@ -105,17 +99,20 @@ public class Java_Laba4 {
                                 switch(fileChoice)
                                 {
                                     case 1:
+                                    input = new TXTReader("input");
                                     input.read(list);
                                     System.out.println ("//Reading data from txt file//");
                                     break;
 
                                     case 2:
-                                    inputXML.read (list);
+                                    input = new XMLReaderDecorator (input);
+                                    input.read (list);
                                     System.out.println("//Reading data from XML file");
                                     break;
 
                                     case 3:
-                                    inputJSON.read(list);
+                                    input = new JSONReaderDecorator (input);
+                                    input.read(list);
                                     System.out.println("//Reading data from JSON file");
                                     break;
 
@@ -131,7 +128,7 @@ public class Java_Laba4 {
                                 switch(fileChoice)
                                 {
                                     case 1:
-                                    out = new TXTWriter("input");
+                                    out = new TXTWriter("output");
                                     out.write(list);
                                     System.out.println ("//Writing data to txt file//");
                                     break;
@@ -232,7 +229,7 @@ public class Java_Laba4 {
                                 break;
 
                             default:
-                                System.out.print("Incorrect input. Try again:");
+                                System.out.print("Incorrect input. Try again:\t");
                                 subChoice = scan.nextInt();
                                 break;
 
@@ -254,17 +251,20 @@ public class Java_Laba4 {
                             switch(fileChoice)
                             {
                                 case 1:
+                                input = new TXTReader("input");
                                 input.read(map);
                                 System.out.println ("//Reading data from txt file//");
                                 break;
 
                                 case 2:
-                                inputXML.read (map);
+                                input = new XMLReaderDecorator(input);
+                                input.read (map);
                                 System.out.println("//Reading data from XML file");
                                 break;
 
                                 case 3:
-                                inputJSON.read(map);
+                                input = new JSONReaderDecorator(input);
+                                input.read(map);
                                 System.out.println("//Reading data from JSON file");
                                 break;
 
@@ -280,17 +280,20 @@ public class Java_Laba4 {
                             switch(fileChoice)
                             {
                                 case 1:
+                                out = new TXTWriter("output");
                                 out.write(map);
                                 System.out.println ("//Writing data to txt file//");
                                 break;
 
                                 case 2:
-                                outXML.write(map);
+                                out = new XMLWriterDecorator(out);
+                                out.write(map);
                                 System.out.println("//Writing data to XML file");
                                 break;
 
                                 case 3:
-                                outJSON.write(map);
+                                out = new JSONWriterDecorator(out);
+                                out.write(map);
                                 System.out.println("//Writing data to JSON file");
                                 break;
 
@@ -365,8 +368,21 @@ public class Java_Laba4 {
                             }
                             subChoice = scan.nextInt();
                             break;
+
+                            case 9:
+                            encryptor.encrypt("output.txt", "encrypted.txt");
+                            System.out.println ("//Data encryption//");
+                            subChoice = scan.nextInt();
+                            break;
+                        
+                        case 10:
+                            encryptor.decrypt("encrypted.txt", "decrypted.txt");
+                            System.out.println ("//Data decryption//");
+                            subChoice = scan.nextInt();
+                            break;
+
                         default:
-                            System.out.print("Incorrect input. Try again:");
+                            System.out.print("Incorrect input. Try again:\t");
                             subChoice = scan.nextInt();
                             break;
                         }

@@ -17,7 +17,7 @@ import javax.crypto.SecretKey;
 public class Encryptor 
 {
     private static final String ALGORITHM = "AES";
-    private SecretKey key;
+    private final SecretKey key;
 
     public Encryptor ()
     {
@@ -50,16 +50,18 @@ public class Encryptor
         {
         Cipher cipher = Cipher.getInstance(ALGORITHM);
         cipher.init(Cipher.ENCRYPT_MODE, key);
-            FileInputStream fileInput = new FileInputStream(filePath);
-            FileOutputStream encrFileOutput = new FileOutputStream(encrFilePath);
-            CipherOutputStream encrStream = new CipherOutputStream(encrFileOutput, cipher);
-
-            byte[] buffer = new byte[1024];
-            int length;
-
-            while ((length = fileInput.read(buffer)) >= 0)
+            try (FileOutputStream encrFileOutput = new FileOutputStream(encrFilePath);
+                FileInputStream fileInput = new FileInputStream(filePath); 
+                CipherOutputStream encrStream = new CipherOutputStream(encrFileOutput, cipher)
+                ) 
             {
-                encrStream.write(buffer, 0, length);
+                byte[] buffer = new byte[1024];
+                int length;
+
+                while ((length = fileInput.read(buffer)) >= 0)
+                {
+                        encrStream.write(buffer, 0, length);
+                }
             }
         }
         catch(NoSuchAlgorithmException e)
@@ -86,16 +88,17 @@ public class Encryptor
         {
         Cipher cipher = Cipher.getInstance(ALGORITHM);
         cipher.init(Cipher.DECRYPT_MODE, key);
-            FileInputStream fileInput = new FileInputStream(encrFilePath);
-            FileOutputStream decrFileOutput = new FileOutputStream(decrFilePath);
-            CipherInputStream decrStream = new CipherInputStream(fileInput, cipher);
-
-            byte[] buffer = new byte[1024];
-            int length;
-
-            while ((length = decrStream.read(buffer)) >= 0)
+            try (FileOutputStream decrFileOutput = new FileOutputStream(decrFilePath);
+                FileInputStream fileInput = new FileInputStream(encrFilePath);
+                CipherInputStream decrStream = new CipherInputStream(fileInput, cipher)) 
             {
-                decrFileOutput.write(buffer, 0, length);
+
+                byte[] buffer = new byte[1024];
+                int length;
+                while ((length = decrStream.read(buffer)) >= 0)
+                {
+                    decrFileOutput.write(buffer, 0, length);
+                }
             }
         }
         catch(NoSuchAlgorithmException e)

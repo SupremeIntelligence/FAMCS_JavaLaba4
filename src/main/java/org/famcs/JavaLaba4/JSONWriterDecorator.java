@@ -12,8 +12,8 @@ import com.fasterxml.jackson.databind.json.JsonMapper;
 
 public class JSONWriterDecorator extends TXTWriter
 {
-    private DataWriter wrapee;
-    private ObjectMapper mapper;
+    private final DataWriter wrapee;
+    private final ObjectMapper mapper;
 
     public JSONWriterDecorator ()
     {
@@ -47,7 +47,7 @@ public class JSONWriterDecorator extends TXTWriter
             System.out.println ("Error writing to JSON file " + e.getMessage());
         }
     }
-
+    @Override
     public void write (CoffeeMakerCollection collection)
     {
         try

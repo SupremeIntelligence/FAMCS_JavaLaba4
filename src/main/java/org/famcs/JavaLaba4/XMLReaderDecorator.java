@@ -17,7 +17,7 @@ import org.xml.sax.SAXException;
 
 public class XMLReaderDecorator extends TXTReader
 {
-    private DataReader wrapee;
+    private final DataReader wrapee;
     private Document document;
 
     public XMLReaderDecorator() 
@@ -32,6 +32,7 @@ public class XMLReaderDecorator extends TXTReader
         document = null;
         this.configure();
     }
+    @Override
     public String getFilePath()
     {
         return this.wrapee.getFilePath();

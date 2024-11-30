@@ -7,30 +7,16 @@
   "date" : "2022-04-05"
 }, {
   "id" : 1,
-  "brand" : "Smeg",
-  "model" : "ECF01RD",
+  "brand" : "BOSCH",
+  "model" : "ABC",
   "price" : 800.0,
-  "power" : 1350,
-  "date" : "2018-11-11"
+  "power" : 1450,
+  "date" : "2021-11-15"
 }, {
   "id" : 2,
-  "brand" : "IllyFrancis",
-  "model" : "Y5Milk",
-  "price" : 500.0,
-  "power" : 1250,
-  "date" : "2021-09-09"
-}, {
-  "id" : 3,
-  "brand" : "Lavazza",
-  "model" : "JoliePlus",
-  "price" : 350.0,
-  "power" : 1100,
-  "date" : "2019-07-03"
-}, {
-  "id" : 4,
-  "brand" : "LaMarzocco",
-  "model" : "LineaMini",
-  "price" : 1500.0,
-  "power" : 1600,
-  "date" : "2023-03-30"
+  "brand" : "Breville",
+  "model" : "Barista Pro",
+  "price" : 1200.0,
+  "power" : 1680,
+  "date" : "2020-03-20"
 } ]

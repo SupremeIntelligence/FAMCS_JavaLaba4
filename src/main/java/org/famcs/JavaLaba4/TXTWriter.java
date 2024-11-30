@@ -11,11 +11,11 @@ import java.util.zip.ZipOutputStream;
 
 public class TXTWriter implements DataWriter
 {
-    private String filePath;
+    private final String filePath;
 
     TXTWriter ()
     {
-        filePath = "output.txt";
+        filePath = "output";
     }
     TXTWriter(String filename)
     {
@@ -42,36 +42,34 @@ public class TXTWriter implements DataWriter
     }
     public void zipArchive (String zipfilename)
     {
-        try
-        {
-            FileInputStream fileInput = new FileInputStream(filePath);
-            FileOutputStream fileOutput = new FileOutputStream(zipfilename);
-            ZipOutputStream zipOutput = new ZipOutputStream(fileOutput);
-
-            ZipEntry zipEntry = new ZipEntry(filePath);
-            zipOutput.putNextEntry(zipEntry);
-
-            byte[] buffer = new byte[1024];
-            int length;
-            while ((length = fileInput.read(buffer)) >= 0)
+            try (FileInputStream fileInput = new FileInputStream(filePath); 
+                FileOutputStream fileOutput = new FileOutputStream(zipfilename); 
+                ZipOutputStream zipOutput = new ZipOutputStream(fileOutput)
+                ) 
             {
-                zipOutput.write(buffer, 0, length);
+                ZipEntry zipEntry = new ZipEntry(filePath);
+                zipOutput.putNextEntry(zipEntry);
+                    
+                byte[] buffer = new byte[1024];
+                int length;
+                while ((length = fileInput.read(buffer)) >= 0)
+                {
+                        zipOutput.write(buffer, 0, length);
+                }
             }
-            zipOutput.close();
-        }
-        catch (IOException e)
-        {
+            catch (IOException e)
+            {
             System.out.println("Error archiving file " + e.getMessage());
-        }
+            }
     }
 
     public void jarArchive(String jarfilename)
     {
-        try 
-        {
-            FileInputStream fileInput = new FileInputStream(filePath + ".txt");
-            FileOutputStream fileOutput = new FileOutputStream(jarfilename);
+        try (FileInputStream fileInput = new FileInputStream(filePath + ".txt"); 
+            FileOutputStream fileOutput = new FileOutputStream(jarfilename); 
             JarOutputStream jarOutput = new JarOutputStream(fileOutput);
+            )
+        {
 
             JarEntry jarEntry = new JarEntry(filePath + ".txt");
             jarOutput.putNextEntry(jarEntry);
@@ -82,13 +80,10 @@ public class TXTWriter implements DataWriter
             {
                 jarOutput.write(buffer, 0, length);
             }
-            jarOutput.close();
-
         } 
         catch (IOException e) 
         {
             System.out.println("Error archiving file " + e.getMessage());
         }
-        
     }
 }

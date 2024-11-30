@@ -1,5 +1,3 @@
 ID:    0 | Brand:   Rancilio | Model:          Silvia | Power:  1400W | Price:  700,0 BYN | Release Date: 05:04:2022
-ID:    1 | Brand:       Smeg | Model:         ECF01RD | Power:  1350W | Price:  800,0 BYN | Release Date: 11:11:2018
-ID:    2 | Brand: IllyFrancis | Model:          Y5Milk | Power:  1250W | Price:  500,0 BYN | Release Date: 09:09:2021
-ID:    3 | Brand:    Lavazza | Model:       JoliePlus | Power:  1100W | Price:  350,0 BYN | Release Date: 03:07:2019
-ID:    4 | Brand: LaMarzocco | Model:       LineaMini | Power:  1600W | Price: 1500,0 BYN | Release Date: 30:03:2023
+ID:    1 | Brand:      BOSCH | Model:             ABC | Power:  1450W | Price:  800,0 BYN | Release Date: 15:11:2021
+ID:    2 | Brand:   Breville | Model:     Barista Pro | Power:  1680W | Price: 1200,0 BYN | Release Date: 20:03:2020

@@ -19,11 +19,11 @@ public abstract class CoffeeFabric
     
     protected CoffeeFabric () 
     {
-        this.ID = this.count++;
+        this.ID = CoffeeFabric.count++;
     };
     public abstract void Display();
+    @Override
     public abstract String toString();
-
     public abstract String getModel();
     public abstract void setModel (String model);
     public abstract String getBrand ();

@@ -16,6 +16,7 @@ public class CoffeeMaker extends CoffeeFabric
     protected double price;
     protected Date releaseDate;     
     
+    @SuppressWarnings("deprecation")
     public CoffeeMaker()
     {
         brand = "BRANDNAME";
@@ -25,6 +26,7 @@ public class CoffeeMaker extends CoffeeFabric
         releaseDate = new Date(99, 0, 1);
     }
     
+    @SuppressWarnings("deprecation")
     public CoffeeMaker(String brandname, String modelname, int powervalue, double pricevalue)
     {
         brand = brandname;
@@ -34,6 +36,7 @@ public class CoffeeMaker extends CoffeeFabric
         releaseDate = new Date(99, 0, 1);
     }
     
+    @SuppressWarnings("deprecation")
     public CoffeeMaker(String brandname, String modelname, int powervalue, double pricevalue, int day, int month, int year)
     {
         brand = brandname;
@@ -77,6 +80,7 @@ public class CoffeeMaker extends CoffeeFabric
     public void setPrice(double price) {
         this.price = price;
     }
+    @Override
     public Date getDate()
     {
         return releaseDate;
@@ -101,14 +105,18 @@ public class CoffeeMaker extends CoffeeFabric
     {
         SimpleDateFormat dateFrmt = new SimpleDateFormat("dd:MM:yyyy");
          String dateStr = dateFrmt.format(releaseDate);
-        Formatter frmt = new Formatter();
-        return frmt.format("ID: %4d | Brand: %10s | Model: %15s | Power: %5dW | Price: %6.1f BYN | Release Date: %10s", getID(), brand, model, power, price, dateStr).toString();
+         String result;
+        try (Formatter frmt = new Formatter()) 
+        {
+            result = frmt.format("ID: %4d | Brand: %10s | Model: %15s | Power: %5dW | Price: %6.1f BYN | Release Date: %10s", getID(), brand, model, power, price, dateStr).toString();
+        }
+        return result;
         
     }
 
+    @SuppressWarnings("deprecation")
     public void Input(Scanner scan)
     {
-        //Scanner scan = new Scanner (System.in);
         System.out.println("Enter the brand name: ");
         scan.nextLine();
         String str = scan.nextLine();

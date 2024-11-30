@@ -9,7 +9,7 @@ import com.fasterxml.jackson.databind.type.CollectionType;
 
 public class JSONReaderDecorator extends TXTReader
 {
-    private DataReader wrapee;
+    private final DataReader wrapee;
     private final ObjectMapper mapper;
 
 
@@ -23,7 +23,7 @@ public class JSONReaderDecorator extends TXTReader
         wrapee = source;
         mapper = new ObjectMapper();
     }
-
+    @Override
     public String getFilePath ()
     {
         return this.wrapee.getFilePath();

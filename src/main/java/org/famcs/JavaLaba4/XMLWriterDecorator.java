@@ -17,7 +17,7 @@ import org.w3c.dom.Element;
 
 public class XMLWriterDecorator extends TXTWriter
 {
-    private DataWriter wrapee;
+    private final DataWriter wrapee;
     private Document document;
 
     public XMLWriterDecorator()
@@ -43,6 +43,7 @@ public class XMLWriterDecorator extends TXTWriter
         return document;
     }
 
+    @Override
     public void write (CoffeeMakerCollection collection)
     {
         Element root = document.getDocumentElement();
@@ -95,7 +96,7 @@ public class XMLWriterDecorator extends TXTWriter
         item.appendChild(child);
     }
 
-    public void configure ()
+    private void configure ()
     {
         try 
         {
