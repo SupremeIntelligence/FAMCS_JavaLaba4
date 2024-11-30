@@ -4,5 +4,6 @@ public interface DataWriter
 {
     public void write (CoffeeMakerCollection collection);
     public String getFilePath();
-    //public void archive();
+    //public void ZipArchive();
+    //public void JarArchive();
 }
