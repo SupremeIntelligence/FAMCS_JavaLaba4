@@ -38,3 +38,13 @@ ID:   36 | Brand:      Miele | Model:          CM6350 | Power:  1500W | Price:  
 ID:   37 | Brand:      Krups | Model:        Evidence | Power:  1450W | Price:  650,0 BYN | Release Date: 06:02:2020
 ID:   38 | Brand:  Nespresso | Model:      VertuoPlus | Power:  1260W | Price:  400,0 BYN | Release Date: 01:06:2019
 ID:   39 | Brand:   Breville | Model:      BaristaPro | Power:  1680W | Price: 1200,0 BYN | Release Date: 27:10:2021
+ID:   40 | Brand:   DeLonghi | Model:       Magnifica | Power:  1500W | Price:  500,0 BYN | Release Date: 12:05:2019
+ID:   41 | Brand:       Jura | Model:        Impressa | Power:  1450W | Price:  800,0 BYN | Release Date: 15:07:2020
+ID:   42 | Brand:    Philips | Model:     SaecoXelsis | Power:  1850W | Price: 1300,0 BYN | Release Date: 18:10:2021
+ID:   43 | Brand:     Gaggia | Model:     AnimaDeluxe | Power:  1400W | Price:  600,0 BYN | Release Date: 05:03:2018
+ID:   44 | Brand:      Bosch | Model:         Tassimo | Power:  1300W | Price:  300,0 BYN | Release Date: 20:08:2016
+ID:   45 | Brand: KitchenAid | Model: ArtisanEspresso | Power:  1380W | Price: 1100,5 BYN | Release Date: 23:09:2022
+ID:   46 | Brand:      Miele | Model:          CM6350 | Power:  1500W | Price:  950,0 BYN | Release Date: 12:12:2023
+ID:   47 | Brand:      Krups | Model:        Evidence | Power:  1450W | Price:  650,0 BYN | Release Date: 06:02:2020
+ID:   48 | Brand:  Nespresso | Model:      VertuoPlus | Power:  1260W | Price:  400,0 BYN | Release Date: 01:06:2019
+ID:   49 | Brand:   Breville | Model:      BaristaPro | Power:  1680W | Price: 1200,0 BYN | Release Date: 27:10:2021

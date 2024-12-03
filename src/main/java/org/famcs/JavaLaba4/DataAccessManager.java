@@ -18,13 +18,15 @@ public final class DataAccessManager
 
     public static DataAccessManager getInstance()
     {
+        DataAccessManager instance = DataAccessManager.instance;
             if (instance == null) //если обьект еще не создан
             {
                 synchronized (DataAccessManager.class) 
                 {
+                instance = DataAccessManager.instance;
                     if (instance == null)                     //или не был создан в промежутке между первой или второй проверкой
                     {
-                        instance = new DataAccessManager();         
+                        DataAccessManager.instance = instance = new DataAccessManager();         
                     }
                 }
             }
@@ -39,12 +41,16 @@ public final class DataAccessManager
         {
             case "txt":
                 reader = baseReader;
+                break;
             case "json":
                 reader = new JSONReaderDecorator(baseReader);
+                break;
             case "xml":
                 reader = new XMLReaderDecorator(baseReader);
+                break;
             default:
                 reader = baseReader;
+                break;
         }
     }
     public void initialize_write(String fileName, String fileType)
@@ -55,12 +61,16 @@ public final class DataAccessManager
         {
             case "txt":
                 writer = baseWriter;
+                break;
             case "json":
                 writer = new JSONWriterDecorator(baseWriter);
+                break;
             case "xml":
                 writer = new XMLWriterDecorator(baseWriter);
+                break;
             default:
-            writer = baseWriter;
+                writer = baseWriter;
+                break;
         }
     }
 

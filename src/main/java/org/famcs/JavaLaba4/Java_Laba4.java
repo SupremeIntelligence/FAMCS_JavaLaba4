@@ -1,10 +1,11 @@
 /*
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  */
-
 package org.famcs.JavaLaba4;
 
 import java.util.Scanner;
+
+
 
 public class Java_Laba4 {
 
@@ -67,8 +68,11 @@ public class Java_Laba4 {
                 1.ZIP
                 2.JAR
                 """;
-        DataReader input = new TXTReader("input");
-        DataWriter out = new TXTWriter ("output");
+
+        DataAccessManager dataManager = DataAccessManager.getInstance();
+
+        DataReader input;
+        DataWriter out;
         Encryptor encryptor = new Encryptor();
 
         System.out.println(menu);
@@ -99,19 +103,22 @@ public class Java_Laba4 {
                                 switch(fileChoice)
                                 {
                                     case 1:
-                                    input = new TXTReader("input");
+                                    dataManager.initialize_read("input", "txt");
+                                    input = dataManager.getDataReader();
                                     input.read(list);
                                     System.out.println ("//Reading data from txt file//");
                                     break;
 
                                     case 2:
-                                    input = new XMLReaderDecorator (input);
+                                    dataManager.initialize_read("input", "xml");
+                                    input = dataManager.getDataReader();
                                     input.read (list);
                                     System.out.println("//Reading data from XML file");
                                     break;
 
                                     case 3:
-                                    input = new JSONReaderDecorator (input);
+                                    dataManager.initialize_read("input", "json");
+                                    input = dataManager.getDataReader();
                                     input.read(list);
                                     System.out.println("//Reading data from JSON file");
                                     break;
@@ -128,19 +135,22 @@ public class Java_Laba4 {
                                 switch(fileChoice)
                                 {
                                     case 1:
-                                    out = new TXTWriter("output");
+                                    dataManager.initialize_write("output", "txt");
+                                    out = dataManager.getDataWriter();
                                     out.write(list);
                                     System.out.println ("//Writing data to txt file//");
                                     break;
 
                                     case 2:
-                                        out = new XMLWriterDecorator(out);
-                                        out.write(list);
+                                    dataManager.initialize_write("output", "xml");
+                                    out = dataManager.getDataWriter();
+                                    out.write(list);
                                     System.out.println("//Writing data to XML file");
                                     break;
 
                                     case 3:
-                                        out = new JSONWriterDecorator(out);
+                                    dataManager.initialize_write("output", "json");
+                                    out = dataManager.getDataWriter();
                                     out.write(list);
                                     System.out.println("//Writing data to JSON file");
                                     break;
@@ -251,19 +261,22 @@ public class Java_Laba4 {
                             switch(fileChoice)
                             {
                                 case 1:
-                                input = new TXTReader("input");
+                                dataManager.initialize_read("input", "txt");
+                                    input = dataManager.getDataReader();
                                 input.read(map);
                                 System.out.println ("//Reading data from txt file//");
                                 break;
 
                                 case 2:
-                                input = new XMLReaderDecorator(input);
+                                dataManager.initialize_read("input", "xml");
+                                input = dataManager.getDataReader();
                                 input.read (map);
                                 System.out.println("//Reading data from XML file");
                                 break;
 
                                 case 3:
-                                input = new JSONReaderDecorator(input);
+                                dataManager.initialize_read("input", "json");
+                                    input = dataManager.getDataReader();
                                 input.read(map);
                                 System.out.println("//Reading data from JSON file");
                                 break;
@@ -280,19 +293,22 @@ public class Java_Laba4 {
                             switch(fileChoice)
                             {
                                 case 1:
-                                out = new TXTWriter("output");
+                                dataManager.initialize_write("output", "txt");
+                                out = dataManager.getDataWriter();
                                 out.write(map);
                                 System.out.println ("//Writing data to txt file//");
                                 break;
 
                                 case 2:
-                                out = new XMLWriterDecorator(out);
+                                dataManager.initialize_write("output", "xml");
+                                out = dataManager.getDataWriter();
                                 out.write(map);
                                 System.out.println("//Writing data to XML file");
                                 break;
 
                                 case 3:
-                                out = new JSONWriterDecorator(out);
+                                dataManager.initialize_write("output", "json");
+                                out = dataManager.getDataWriter();
                                 out.write(map);
                                 System.out.println("//Writing data to JSON file");
                                 break;
