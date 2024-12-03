@@ -1,4 +1,4 @@
-                :   DeLonghi | Model:       Magnifica | Power:  1500W | Price:  500,0 BYN | Release Date: 12:05:2019
+ID:    0 | Brand:   DeLonghi | Model:       Magnifica | Power:  1500W | Price:  500,0 BYN | Release Date: 12:05:2019
 ID:    1 | Brand:       Jura | Model:        Impressa | Power:  1450W | Price:  800,0 BYN | Release Date: 15:07:2020
 ID:    2 | Brand:    Philips | Model:     SaecoXelsis | Power:  1850W | Price: 1300,0 BYN | Release Date: 18:10:2021
 ID:    3 | Brand:     Gaggia | Model:     AnimaDeluxe | Power:  1400W | Price:  600,0 BYN | Release Date: 05:03:2018
