@@ -63,6 +63,7 @@ public class Encryptor
                 CipherOutputStream encrStream = new CipherOutputStream(encrFileOutput, cipher)
                 ) 
             {
+                encrFileOutput.write(iv);
                 byte[] buffer = new byte[1024];
                 int length;
 
