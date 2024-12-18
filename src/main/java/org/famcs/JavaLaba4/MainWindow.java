@@ -45,6 +45,7 @@ public class MainWindow extends JFrame
         JPanel menuPanel = new JPanel();
         menuPanel.setLayout (new GridLayout(0, 1, 50, 10));
 
+        JLabel nameLabel = new JLabel("Action Menu", JLabel.CENTER);
         JButton addButton = new JButton("Add item");
         JButton updateButton = new JButton ("Update item");
         JButton deleteButton = new JButton("Delete item");
@@ -62,10 +63,19 @@ public class MainWindow extends JFrame
             @Override
             public void actionPerformed(ActionEvent e)
             {
-                JOptionPane.showMessageDialog(null,"Update Button clicked!");
+                inputPanel();
             }
         });
-        menuPanel.add(new JLabel("Action Menu"));
+
+        deleteButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e)
+            {
+                deletePanel();
+            }
+            
+        });
+        menuPanel.add(nameLabel);
         menuPanel.add(addButton);
         menuPanel.add(updateButton);
         menuPanel.add(deleteButton);
@@ -181,10 +191,26 @@ public class MainWindow extends JFrame
                 int day = Integer.parseInt(dayField.getText());
                 int month = Integer.parseInt(monthField.getText());
                 int year = Integer.parseInt(yearField.getText());
-                String date = dayField.getText() + " : " + monthField.getText() + " : " + yearField.getText();
+                String date = dayField.getText() + "." + monthField.getText() + "." + yearField.getText();
 
-                collection.add(new CoffeeMaker(brand, model, power, price, day, month, year));
-                tableModel.addRow(new Object[] {ID, brand, model, power, price, day});
+                CoffeeMaker obj = new CoffeeMaker (brand, model, power, price, day, month, year);
+                obj.setID(ID);
+                if (ID>=tableModel.getRowCount())
+                {
+                    collection.add(obj);
+                    tableModel.addRow(new Object[] {ID, brand, model, power, price, date});
+                }
+                else if (ID >= 0 || ID < tableModel.getRowCount())
+                {
+                    tableModel.setValueAt(ID, ID, 0);
+                    tableModel.setValueAt(brand, ID, 1);
+                    tableModel.setValueAt(model, ID, 2);
+                    tableModel.setValueAt(power, ID, 3);
+                    tableModel.setValueAt(price, ID, 4);
+                    tableModel.setValueAt(date, ID, 5);
+                    collection.update(obj);
+                }
+                
 
                  dialog.dispose();
             }
@@ -194,4 +220,21 @@ public class MainWindow extends JFrame
 
         dialog.setVisible(true);
     }
+
+    private void deletePanel()
+    {
+        JDialog dialog = new JDialog(this, "CoffeeMaker Delete Window", false);
+        dialog.setSize(200, 100);
+         dialog.setLocationRelativeTo(this); 
+         dialog.setResizable(false);
+        dialog.setLayout(new FlowLayout(FlowLayout.CENTER, 50, 30));
+        dialog.setVisible(true);
+
+    }
+
+    private void updateTable()
+    {
+        
+    }
 }
+

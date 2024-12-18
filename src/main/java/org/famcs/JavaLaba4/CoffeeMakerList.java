@@ -134,6 +134,9 @@ public class CoffeeMakerList extends CoffeeMakerCollection
     @Override
     public void addFromList (List<CoffeeFabric> obj)
     {
-        list.addAll(obj);
+        for (CoffeeFabric item : obj)
+        {
+            list.add(item);
+        }
     }
 }
