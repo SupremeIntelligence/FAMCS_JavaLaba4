@@ -5,14 +5,21 @@ package org.famcs.JavaLaba4;
 
 import java.util.Scanner;
 
+import javax.swing.SwingUtilities;
+
+
 
 
 public class Java_Laba4 {
 
-    public static void main(String[] args) {
+    public static void main(String[] args) 
+    {
+
+    SwingUtilities.invokeLater(MainWindow::new);
 
         CoffeeMakerList list = new CoffeeMakerList();
         CoffeeMakerMap map = new CoffeeMakerMap();
+
 
         // CoffeeMaker obj1 = new CoffeeMaker("Bosch", "PP-123", 120, 300);
         //CoffeeMaker obj2 = new CoffeeMaker();
