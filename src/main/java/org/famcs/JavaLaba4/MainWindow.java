@@ -10,6 +10,7 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
 import javax.swing.BoxLayout;
+import javax.swing.ButtonGroup;
 import javax.swing.JButton;
 import javax.swing.JDialog;
 import javax.swing.JFrame;
@@ -71,10 +72,40 @@ public class MainWindow extends JFrame
         menuPanel.add(sortButton);
 
 
+    JRadioButton listRButton = new JRadioButton("List");
+    JRadioButton mapRButton = new JRadioButton("Map");
+
         JPanel containerPanel = new JPanel();
         containerPanel.setLayout(new GridLayout(1,0,25,25));
-        containerPanel.add(new JRadioButton("List"));
-        containerPanel.add(new JRadioButton("Map"));
+        containerPanel.add(listRButton);
+        containerPanel.add(mapRButton);
+
+        ButtonGroup RBgroup = new ButtonGroup();
+        RBgroup.add (listRButton);
+        RBgroup.add(mapRButton);
+        listRButton.setSelected(true);
+
+        listRButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e)
+            {
+                if (listRButton.isSelected())
+                {
+                    collection = new CoffeeMakerList();
+                }
+            }
+        });
+
+        mapRButton.addActionListener((new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e)
+            {
+                if (mapRButton.isSelected())
+                {
+                    collection = new CoffeeMakerMap();
+                }
+            }
+        }));
 
         String[] columnNames = {"ID", "Brand", "Model", "Power", "Price", "Release date"};
 
